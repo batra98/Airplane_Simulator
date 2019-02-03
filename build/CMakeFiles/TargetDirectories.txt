@@ -1,0 +1,3 @@
+/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles/edit_cache.dir
+/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles/rebuild_cache.dir
+/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles/graphics_asgn1.dir

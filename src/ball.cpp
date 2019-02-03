@@ -66,7 +66,7 @@ void Ball::set_position(float x, float y) {
 }
 
 void Ball::tick() {
-    this->rotation += speed;
+    //this->rotation += speed;
     // this->position.x -= speed;
     // this->position.y -= speed;
 }

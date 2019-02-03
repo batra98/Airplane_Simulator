@@ -43,6 +43,9 @@ void keyboard(GLFWwindow *window, int key, int scancode, int action, int mods) {
         case GLFW_KEY_ESCAPE:
             quit(window);
             break;
+        case GLFW_KEY_V:
+            camera_view = (camera_view_t) ((camera_view + 1) % 6);
+            break;    
         default:
             break;
         }

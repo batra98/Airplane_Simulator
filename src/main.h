@@ -63,6 +63,8 @@ extern GLMatrices Matrices;
 // ---- Logic ----
 
 enum direction_t { DIR_UP, DIR_RIGHT, DIR_DOWN, DIR_LEFT };
+enum camera_view_t {CAMERA_DRIVER,CAMERA_TOP,CAMERA_TOWER,CAMERA_FOLLOW,CAMERA_HELICOPTER,CAMERA_NORMAL};
+extern enum camera_view_t camera_view;
 
 struct bounding_box_t {
     float x;
@@ -81,5 +83,8 @@ extern const color_t COLOR_RED;
 extern const color_t COLOR_GREEN;
 extern const color_t COLOR_BLACK;
 extern const color_t COLOR_BACKGROUND;
+extern const color_t PLANE_BODY;
+extern const color_t COLOR_CLOUDS;
+extern const color_t COLOR_SKY;
 
 #endif
