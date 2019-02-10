@@ -7,8 +7,10 @@ Plane::Plane(float x,float y,float z)
     this->velocity = glm::vec3(0,0,0);
     this->acceleration = glm::vec3(0,0,0);
     this->rotation = glm::vec3(0,0,0);
-    this->norm_speed = 1.5;
+    this->norm_speed = 0.5;
+    this->angle_rotate = 0.5;
     this->propeller_angle = 0;
+    this->local_rotation = glm::mat4(1.0f);
 
     int n = 100;
     GLfloat g_vertex_buffer_data[3805];
@@ -18,27 +20,27 @@ Plane::Plane(float x,float y,float z)
     {
         g_vertex_buffer_data[k++] = 0.0f + 0.25*sin(2*M_PI/n*i);
 		g_vertex_buffer_data[k++] = 0.0f + 0.25*cos(2*M_PI/n*i);
-		g_vertex_buffer_data[k++] = -7.0f;
+		g_vertex_buffer_data[k++] = -3.5f;
 
 		g_vertex_buffer_data[k++] = 0.0f + 0.5*sin(2*M_PI/n*i);
 		g_vertex_buffer_data[k++] = 0.0f + 0.5*cos(2*M_PI/n*i);
-		g_vertex_buffer_data[k++] = -2.0f;
+		g_vertex_buffer_data[k++] = 1.5f;
 
 		g_vertex_buffer_data[k++] = 0.0f + 0.5*sin(2*M_PI/n*(i+1));
 		g_vertex_buffer_data[k++] = 0.0f + 0.5*cos(2*M_PI/n*(i+1));
-		g_vertex_buffer_data[k++] = -2.0f;
+		g_vertex_buffer_data[k++] = 1.5f;
 
         g_vertex_buffer_data[k++] = 0.0f + 0.5*sin(2*M_PI/n*(i+1));
 		g_vertex_buffer_data[k++] = 0.0f + 0.5*cos(2*M_PI/n*(i+1));
-		g_vertex_buffer_data[k++] = -2.0f;
+		g_vertex_buffer_data[k++] = 1.5f;
 
         g_vertex_buffer_data[k++] = 0.0f + 0.25*sin(2*M_PI/n*i);
 		g_vertex_buffer_data[k++] = 0.0f + 0.25*cos(2*M_PI/n*i);
-		g_vertex_buffer_data[k++] = -7.0f;
+		g_vertex_buffer_data[k++] = -3.5f;
 
 		g_vertex_buffer_data[k++] = 0.0f + 0.25*sin(2*M_PI/n*(i+1));
 		g_vertex_buffer_data[k++] = 0.0f + 0.25*cos(2*M_PI/n*(i+1));
-		g_vertex_buffer_data[k++] = -7.0f;
+		g_vertex_buffer_data[k++] = -3.5f;
     }
 
     //k=0;
@@ -46,103 +48,103 @@ Plane::Plane(float x,float y,float z)
     {
         g_vertex_buffer_data[k++] = 0.0f;
 		g_vertex_buffer_data[k++] = 0.0f;
-		g_vertex_buffer_data[k++] = -7.5f;
+		g_vertex_buffer_data[k++] = -4.0f;
 
         g_vertex_buffer_data[k++] = 0.0f + 0.25*sin(2*M_PI/n*i);
 		g_vertex_buffer_data[k++] = 0.0f + 0.25*cos(2*M_PI/n*i);
-		g_vertex_buffer_data[k++] = -7.0f;
+		g_vertex_buffer_data[k++] = -3.5f;
 
 		g_vertex_buffer_data[k++] = 0.0f + 0.25*sin(2*M_PI/n*(i+1));
 		g_vertex_buffer_data[k++] = 0.0f + 0.25*cos(2*M_PI/n*(i+1));
-		g_vertex_buffer_data[k++] = -7.0f;
+		g_vertex_buffer_data[k++] = -3.5f;
     }
 
     for(int i=0;i<n;i++)
     {
         g_vertex_buffer_data[k++] = 0.0f;
 		g_vertex_buffer_data[k++] = 0.0f;
-		g_vertex_buffer_data[k++] = -2.0f;
+		g_vertex_buffer_data[k++] = 1.5f;
 
         g_vertex_buffer_data[k++] = 0.0f + 0.5*sin(2*M_PI/n*i);
 		g_vertex_buffer_data[k++] = 0.0f + 0.5*cos(2*M_PI/n*i);
-		g_vertex_buffer_data[k++] = -2.0f;
+		g_vertex_buffer_data[k++] = 1.5f;
 
 		g_vertex_buffer_data[k++] = 0.0f + 0.5*sin(2*M_PI/n*(i+1));
 		g_vertex_buffer_data[k++] = 0.0f + 0.5*cos(2*M_PI/n*(i+1));
-		g_vertex_buffer_data[k++] = -2.0f;
+		g_vertex_buffer_data[k++] = 1.5f;
     }
 
     GLfloat g_vertex_buffer_data1[]=
     {
-        0.0f,0.0f,-2.0f,
-        0.0f,0.0f,-4.0f,
-        0.0f,1.0f,-1.0f,
+        0.0f,0.0f,1.5f,
+        0.0f,0.0f,-0.5f,
+        0.0f,1.0f,2.5f,
                             //up
-        0.0f,0.0f,-4.0f,
-        0.0f,1.0f,-1.0f,
-        0.0f,1.0f,-3.0f,
+        0.0f,0.0f,-0.5f,
+        0.0f,1.0f,2.5f,
+        0.0f,1.0f,0.5f,
 
-        0.0f,0.0f,-2.0f,
-        0.0f,0.0f,-4.0f,
-        1.0f,-0.15f,-1.0f,
+        0.0f,0.0f,1.5f,
+        0.0f,0.0f,-0.5f,
+        1.0f,-0.15f,2.5f,
                         //right
-        0.0f,0.0f,-4.0f,
-        1.0f,-0.15f,-1.0f,
-        1.0f,-0.15f,-3.0f,
+        0.0f,0.0f,-0.5f,
+        1.0f,-0.15f,2.5f,
+        1.0f,-0.15f,0.5f,
 
-        0.0f,0.0f,-2.0f,
-        0.0f,0.0f,-4.0f,
-        -1.0f,-0.15f,-1.0f,
+        0.0f,0.0f,1.5f,
+        0.0f,0.0f,-0.5f,
+        -1.0f,-0.15f,2.5f,
                             //left
-        0.0f,0.0f,-4.0f,
-        -1.0f,-0.15f,-1.0f,
-        -1.0f,-0.15f,-3.0f,
+        0.0f,0.0f,-0.5f,
+        -1.0f,-0.15f,2.5f,
+        -1.0f,-0.15f,0.5f,
 
-        0.0f,0.0f,-5.0f,
-        3.0f,-0.15f,-4.5f,
-        0.0f,0.0f,-6.0f,
+        0.0f,0.0f,-1.5f,
+        3.0f,-0.15f,-1.0f,
+        0.0f,0.0f,-2.5f,
                             //right wing
-        3.0f,-0.15f,-4.5f,
-        0.0f,0.0f,-6.0f,
-        2.5f,-0.15f,-5.5f,
+        3.0f,-0.15f,-1.0f,
+        0.0f,0.0f,-2.5f,
+        2.5f,-0.15f,-2.0f,
 
-        0.0f,0.0f,-5.0f,
-        -3.0f,-0.15f,-4.5f,
-        0.0f,0.0f,-6.0f,
+        0.0f,0.0f,-1.5f,
+        -3.0f,-0.15f,-1.0f,
+        0.0f,0.0f,-2.5f,
                             //right wing
-        -3.0f,-0.15f,-4.5f,
-        0.0f,0.0f,-6.0f,
-        -2.5f,-0.15f,-5.5f,
+        -3.0f,-0.15f,-1.0f,
+        0.0f,0.0f,-2.5f,
+        -2.5f,-0.15f,-2.0f,
     };
 
     GLfloat g_vertex_buffer_data2[]=
     {
-        1.0f,1.0f,-1.0f,
-        1.0f,1.0f,-3.0f,
-        -1.0f,1.0f,-1.0f,
+        1.0f,1.0f,2.5f,
+        1.0f,1.0f,0.5f,
+        -1.0f,1.0f,2.5f,
 
-        1.0f,1.0f,-3.0f,
-        -1.0f,1.0f,-1.0f,
-        -1.0f,1.0f,-3.0f,
+        1.0f,1.0f,0.5f,
+        -1.0f,1.0f,2.5f,
+        -1.0f,1.0f,0.5f,
 
     };
 
     GLfloat g_vertex_buffer_data3[] = {
-        0.0f,0.0f,-7.5f,
-        2.0f,-0.3f,-7.5f,
-        2.0f,0.3f,-7.5f,
+        0.0f,0.0f,-4.0f,
+        2.0f,-0.3f,-4.0f,
+        2.0f,0.3f,-4.0f,
 
-        -0.3f,2.0f,-7.5f,
-        0.3f,2.0f,-7.5f,
-        0.0f,0.0f,-7.5f,
+        -0.3f,2.0f,-4.0f,
+        0.3f,2.0f,-4.0f,
+        0.0f,0.0f,-4.0f,
 
-        -2.0f,0.3f,-7.5f,
-        -2.0f,-0.3f,-7.5f,
-        0.0f,0.0f,-7.5f,
+        -2.0f,0.3f,-4.0f,
+        -2.0f,-0.3f,-4.0f,
+        0.0f,0.0f,-4.0f,
 
-        -0.3f,-2.0f,-7.5f,
-        0.3f,-2.0f,-7.5f,
-        0.0f,0.0f,-7.5f,
+        -0.3f,-2.0f,-4.0f,
+        0.3f,-2.0f,-4.0f,
+        0.0f,0.0f,-4.0f,
     };
 
     this->body = create3DObject(GL_TRIANGLES,6*n,g_vertex_buffer_data,PLANE_BODY);
@@ -156,10 +158,11 @@ void Plane::draw(glm::mat4 VP)
 {
     Matrices.model = glm::mat4(1.0f);
     glm::mat4 translate = glm::translate(this->position);
-    glm::mat4 rotate_x = glm::rotate((float)(this->rotation.x*M_PI/180.0f),glm::vec3(1,0,0));
-    glm::mat4 rotate_y = glm::rotate((float)(this->rotation.y*M_PI/180.0f),glm::vec3(0,1,0));
-    glm::mat4 rotate_z = glm::rotate((float)(this->rotation.z*M_PI/180.0f),glm::vec3(0,0,1));
-    Matrices.model *= (translate*rotate_x*rotate_y*rotate_z);
+    // glm::mat4 translate_origin = glm::translate(glm::vec3(0,0,3.5f));
+    // glm::mat4 rotate_x = glm::rotate((float)(this->rotation.x*M_PI/180.0f),glm::vec3(1,0,0));
+    // glm::mat4 rotate_y = glm::rotate((float)(this->rotation.y*M_PI/180.0f),glm::vec3(0,1,0));
+    // glm::mat4 rotate_z = glm::rotate((float)(this->rotation.z*M_PI/180.0f),glm::vec3(0,0,1));
+    Matrices.model *= (translate*this->local_rotation);
     glm::mat4 MVP = VP * Matrices.model;
     glUniformMatrix4fv(Matrices.MatrixID,1,GL_FALSE,&MVP[0][0]);
     draw3DObject(this->body);
@@ -175,6 +178,7 @@ void Plane::draw(glm::mat4 VP)
     draw3DObject(this->propeller);
     //draw3DObject(this->propeller);
 }
+
 void Plane::draw2(glm::mat4 VP)
 {
 //     Matrices.model = glm::mat4(1.0f);
@@ -206,43 +210,76 @@ void Plane::tick()
         this->velocity = glm::vec3(0,0,0);
     
     this->position += this->velocity;
+
+    // this->length_y = glm::length(glm::vec3(this->local_rotation[2][0],this->local_rotation[2][1],this->local_rotation[2][2]));
+    // this->translate_y = glm::vec3(this->local_rotation[2][0]*this->norm_speed/this->length_z,this->local_rotation[2][1]*this->norm_speed/this->length_z,this->local_rotation[2][2]*this->norm_speed/this->length_z);
+    
 }
 
 void Plane::right()
 {
-    this->rotation.y -= this->norm_speed;
+    glm::mat4 rotate_y = glm::rotate((float)(-this->angle_rotate*M_PI/180.0f),glm::vec3(this->local_rotation[1][0],this->local_rotation[1][1],this->local_rotation[1][2]));
+    //this->rotation.y -= this->norm_speed;
+    this->local_rotation = this->local_rotation*rotate_y;
+
 }
 
 void Plane::left()
 {
-    this->rotation.y += this->norm_speed;
+    glm::mat4 rotate_y = glm::rotate((float)(this->angle_rotate*M_PI/180.0f),glm::vec3(this->local_rotation[1][0],this->local_rotation[1][1],this->local_rotation[1][2]));
+    //this->rotation.y += this->norm_speed;
+    this->local_rotation = this->local_rotation*rotate_y;
 }
 
 void Plane::forward()
 {
-    if(this->rotation.x > -20)
-    this->rotation.x -= 0.3;
+    // if(this->rotation.x > -20)
+    // this->rotation.x -= 0.3;
     // this->acceleration = glm::vec3((this->norm_speed/20)*sin(this->rotation.y*M_PI/180.0),0,(this->norm_speed/20)*cos(this->rotation.y*M_PI/180.0));
     // this->velocity = glm::vec3(-(this->norm_speed/4)*sin(this->rotation.y*M_PI/180.0),(this->norm_speed/8)*sin(this->rotation.x*M_PI/180.0),-(this->norm_speed/4)*cos(this->rotation.y*M_PI/180.0));
+    //glm::mat4 rotate_x = glm::rotate((float)(-this->angle_rotate*M_PI/180.0f),glm::vec3(this->local_rotation[0][0],this->local_rotation[0][1],this->local_rotation[0][2]));
+    this->length_z = glm::length(glm::vec3(this->local_rotation[2][0],this->local_rotation[2][1],this->local_rotation[2][2]));
+    this->translate_z = glm::vec3(this->local_rotation[2][0]*this->norm_speed/this->length_z,this->local_rotation[2][1]*this->norm_speed/this->length_z,this->local_rotation[2][2]*this->norm_speed/this->length_z);
+    this->position -= this->translate_z;
+    //std::cout << translate_z.length() << '\n'; 
+    //this->local_rotation = rotate_x*this->local_rotation;
+}
+
+void Plane::nose_down()
+{
+    glm::mat4 rotate_x = glm::rotate((float)(-this->angle_rotate*M_PI/180.0f),glm::vec3(this->local_rotation[0][0],this->local_rotation[0][1],this->local_rotation[0][2]));
+    this->local_rotation = rotate_x*this->local_rotation;
+}
+
+void Plane::nose_up()
+{
+    glm::mat4 rotate_x = glm::rotate((float)(this->angle_rotate*M_PI/180.0f),glm::vec3(this->local_rotation[0][0],this->local_rotation[0][1],this->local_rotation[0][2]));
+    this->local_rotation = rotate_x*this->local_rotation;
 }
 
 void Plane::backward()
 {
-    if(this->rotation.x < 20)
-    this->rotation.x += 0.3;
+    // if(this->rotation.x < 20)
+    // this->rotation.x += 0.3;
     // this->acceleration = glm::vec3((this->norm_speed/20)*sin(this->rotation.y*M_PI/180.0),0,(this->norm_speed/20)*cos(this->rotation.y*M_PI/180.0));
     // this->velocity = glm::vec3(-(this->norm_speed/4)*sin(this->rotation.y*M_PI/180.0),(this->norm_speed/8)*sin(this->rotation.x*M_PI/180.0),-(this->norm_speed/4)*cos(this->rotation.y*M_PI/180.0));
-
+    // glm::mat4 rotate_x = glm::rotate((float)(this->angle_rotate*M_PI/180.0f),glm::vec3(this->local_rotation[0][0],this->local_rotation[0][1],this->local_rotation[0][2]));
+    this->length_z = glm::length(glm::vec3(this->local_rotation[2][0],this->local_rotation[2][1],this->local_rotation[2][2]));
+    this->translate_z = glm::vec3(this->local_rotation[2][0]*this->norm_speed/this->length_z,this->local_rotation[2][1]*this->norm_speed/this->length_z,this->local_rotation[2][2]*this->norm_speed/this->length_z);
+    this->position += this->translate_z;
+    // this->local_rotation = rotate_x*this->local_rotation;
 }
 
 void Plane::right_tilt()
 {
-    this->rotation.z -= this->norm_speed;
+    glm::mat4 rotate_z = glm::rotate((float)(this->angle_rotate*M_PI/180.0f),glm::vec3(this->local_rotation[2][0],this->local_rotation[2][1],this->local_rotation[2][2]));
+    this->local_rotation = rotate_z*this->local_rotation;
 }
 
 void Plane::left_tilt()
 {
-    this->rotation.z += this->norm_speed;
+    glm::mat4 rotate_z = glm::rotate((float)(-this->angle_rotate*M_PI/180.0f),glm::vec3(this->local_rotation[2][0],this->local_rotation[2][1],this->local_rotation[2][2]));
+    this->local_rotation = rotate_z*this->local_rotation;
 }
 
 

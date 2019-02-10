@@ -14,12 +14,14 @@ GLFWwindow *window;
 **************************/
 
 Plane player;
-Floor clouds;
+vector <Floor> islands;
 
 float screen_zoom = 1, screen_center_x = 0, screen_center_y = 0;
 float camera_rotation_angle = 0;
 glm::vec3 eye,target,up;
 camera_view_t camera_view = CAMERA_NORMAL;
+
+int number_of_islands = 50;
 
 Timer t60(1.0 / 60);
 
@@ -51,11 +53,13 @@ void draw() {
         up = glm::vec3 (0, -1, 0);
     }
     else if(camera_view == CAMERA_FOLLOW)
-    {
-        eye = glm::vec3(player.position.x,player.position.y,player.position.z);
-        target = glm::vec3(player.position.x-2*sin((player.rotation.y)* M_PI / 180.0),player.position.y+2*sin((player.rotation.x)*M_PI/180.0),player.position.z-2*cos((player.rotation.y)* M_PI / 180.0));
-        up = glm::vec3(0,1,0);
+    {       
+        eye = glm::vec3(player.position.x+10*player.local_rotation[2][0],player.position.y+10*player.local_rotation[2][1],player.position.z+10*player.local_rotation[2][2]);
+        target = glm::vec3(player.position.x-25*player.local_rotation[2][0],player.position.y-25*player.local_rotation[2][1],player.position.z-25*player.local_rotation[2][2]);
+        up = glm::vec3(player.local_rotation[1][0],player.local_rotation[1][1],player.local_rotation[1][2]);
+        // up = glm::vec3(0,1,0);
     }
+
     
 
     Matrices.view = glm::lookAt(eye,target,up);
@@ -68,7 +72,12 @@ void draw() {
 
     player.draw(VP);
     player.draw2(VP);
-    clouds.draw(VP);
+
+    for(int i=0;i<number_of_islands;i++)
+    {
+        islands[i].draw(VP);
+    }
+    // clouds.draw(VP);
     // Scene render
     
 }
@@ -84,13 +93,11 @@ void tick_input(GLFWwindow *window) {
     int c = glfwGetKey(window,GLFW_KEY_C);
     if (a) {
         player.left();
-        if(player.rotation.z < 90)
-        player.left_tilt();
+        //player.left_tilt();
     }
     if(d){
         player.right();
-        if(player.rotation.z > -90)
-        player.right_tilt();
+        //player.right_tilt();
     }
     if(w)
     {
@@ -98,11 +105,11 @@ void tick_input(GLFWwindow *window) {
     }
     if(e)
     {
-        player.left();
+        player.nose_down();
     }
     if(r)
     {
-        player.right();
+        player.nose_up();
     }
     if(s)
     {
@@ -110,19 +117,25 @@ void tick_input(GLFWwindow *window) {
     }
     if(x)
     {
-        player.left_tilt();
+        player.right_tilt();
     }
     if(c)
     {
-        player.right_tilt();
+        player.left_tilt();
     }
 }
 
 void tick_elements() {
     player.tick();
 
+    for(int i=0;i<number_of_islands;i++)
+    {
+        islands[i].tick();
+    }
+
     cout << player.position.x << " " << player.position.y << " " << player.position.z << '\n';
-    cout << player.rotation.x << " " << player.rotation.y << " " << player.rotation.z << '\n';
+    cout << player.local_rotation[2][0] << " " << player.local_rotation[2][1] << " " << player.local_rotation[2][2] << '\n';
+    cout << "eye " << eye.x << " " << eye.y << " " << eye.z << '\n';
     //clouds.tick();
     //camera_rotation_angle += 1;
 }
@@ -134,8 +147,14 @@ void initGL(GLFWwindow *window, int width, int height) {
     // Create the models
 
     
-    player = Plane(0,0,-2);
-    clouds = Floor(0,-100,0);
+    player = Plane(0,0,0);
+
+    for(int i = 0;i<number_of_islands;i++)
+    {
+        islands.push_back(Floor(rand()%1000,-100,rand()%1000));
+    }
+    
+    // clouds = Floor(0,-100,0);
     // Create and compile our GLSL program from the shaders
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
     // Get a handle for our "MVP" uniform
