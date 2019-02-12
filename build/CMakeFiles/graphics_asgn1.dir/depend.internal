@@ -5,6 +5,10 @@ CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o
  /home/gaurav/Graphics/airplane_simulator/src/ball.cpp
  /home/gaurav/Graphics/airplane_simulator/src/ball.h
  /home/gaurav/Graphics/airplane_simulator/src/main.h
+CMakeFiles/graphics_asgn1.dir/src/bullet.cpp.o
+ /home/gaurav/Graphics/airplane_simulator/src/bullet.cpp
+ /home/gaurav/Graphics/airplane_simulator/src/bullet.h
+ /home/gaurav/Graphics/airplane_simulator/src/main.h
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.o
  /home/gaurav/Graphics/airplane_simulator/src/color.cpp
  /home/gaurav/Graphics/airplane_simulator/src/main.h
@@ -16,6 +20,7 @@ CMakeFiles/graphics_asgn1.dir/src/input.cpp.o
  /home/gaurav/Graphics/airplane_simulator/src/input.cpp
  /home/gaurav/Graphics/airplane_simulator/src/main.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o
+ /home/gaurav/Graphics/airplane_simulator/src/bullet.h
  /home/gaurav/Graphics/airplane_simulator/src/floor.h
  /home/gaurav/Graphics/airplane_simulator/src/main.cpp
  /home/gaurav/Graphics/airplane_simulator/src/main.h

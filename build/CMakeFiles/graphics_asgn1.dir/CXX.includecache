@@ -16,6 +16,16 @@ main.h
 main.h
 /home/gaurav/Graphics/airplane_simulator/src/main.h
 
+/home/gaurav/Graphics/airplane_simulator/src/bullet.cpp
+bullet.h
+/home/gaurav/Graphics/airplane_simulator/src/bullet.h
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
+
+/home/gaurav/Graphics/airplane_simulator/src/bullet.h
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
+
 /home/gaurav/Graphics/airplane_simulator/src/color.cpp
 main.h
 /home/gaurav/Graphics/airplane_simulator/src/main.h
@@ -61,6 +71,8 @@ plane.h
 /home/gaurav/Graphics/airplane_simulator/src/plane.h
 floor.h
 /home/gaurav/Graphics/airplane_simulator/src/floor.h
+bullet.h
+/home/gaurav/Graphics/airplane_simulator/src/bullet.h
 
 /home/gaurav/Graphics/airplane_simulator/src/main.h
 iostream

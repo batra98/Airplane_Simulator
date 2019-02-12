@@ -34,7 +34,7 @@ public:
     void nose_down();
     void nose_up();
     void set_speed(float a);
-    bounding_box_t bounding_box();
+    bounding_sphere_t bounding_sphere();
 
 private:
     VAO *body;

@@ -66,17 +66,18 @@ enum direction_t { DIR_UP, DIR_RIGHT, DIR_DOWN, DIR_LEFT };
 enum camera_view_t {CAMERA_DRIVER,CAMERA_TOP,CAMERA_TOWER,CAMERA_FOLLOW,CAMERA_HELICOPTER,CAMERA_NORMAL};
 extern enum camera_view_t camera_view;
 
-struct bounding_box_t {
+struct bounding_sphere_t {
     float x;
     float y;
-    float width;
-    float height;
+    float z;
+    float radius;
 };
 
-bool detect_collision(bounding_box_t a, bounding_box_t b);
+bool detect_collision(bounding_sphere_t a, bounding_sphere_t b);
 
 extern float screen_zoom, screen_center_x, screen_center_y;
 void reset_screen();
+void delete_objects();
 
 // ---- Colors ----
 extern const color_t COLOR_RED;
@@ -86,5 +87,10 @@ extern const color_t COLOR_BACKGROUND;
 extern const color_t PLANE_BODY;
 extern const color_t COLOR_CLOUDS;
 extern const color_t COLOR_SKY;
+extern const color_t COLOR_VOLCANO;
+extern const color_t COLOR_LAVA;
+extern const color_t COLOR_GRASS;
+extern const color_t COLOR_MISSILE_BODY;
+extern const color_t COLOR_MISSILE_FLAME;
 
 #endif

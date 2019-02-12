@@ -282,5 +282,19 @@ void Plane::left_tilt()
     this->local_rotation = rotate_z*this->local_rotation;
 }
 
+bounding_sphere_t Plane::bounding_sphere(){
+    float x,y,z,radius;
+
+    x = this->position.x;
+    y = this->position.y;
+    z = this->position.z;
+
+    radius = 4;
+
+    bounding_sphere_t bsphere = {x,y,z,radius};
+    return bsphere;
+
+}
+
 
 

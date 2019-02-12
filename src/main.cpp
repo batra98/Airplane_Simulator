@@ -2,6 +2,7 @@
 #include "timer.h"
 #include "plane.h"
 #include "floor.h"
+#include "bullet.h"
 
 using namespace std;
 
@@ -15,13 +16,18 @@ GLFWwindow *window;
 
 Plane player;
 vector <Floor> islands;
+vector <Bullet> bullets;
+
 
 float screen_zoom = 1, screen_center_x = 0, screen_center_y = 0;
 float camera_rotation_angle = 0;
 glm::vec3 eye,target,up;
 camera_view_t camera_view = CAMERA_NORMAL;
 
-int number_of_islands = 50;
+int number_of_islands = 20;
+int counter=0;
+
+
 
 Timer t60(1.0 / 60);
 
@@ -71,11 +77,16 @@ void draw() {
     glm::mat4 MVP;  // MVP = Projection * View * Model
 
     player.draw(VP);
-    player.draw2(VP);
+    
 
     for(int i=0;i<number_of_islands;i++)
     {
         islands[i].draw(VP);
+    }
+
+    for(int i = 0;i<bullets.size();i++)
+    {
+        bullets[i].draw(VP);
     }
     // clouds.draw(VP);
     // Scene render
@@ -91,6 +102,7 @@ void tick_input(GLFWwindow *window) {
     int s = glfwGetKey(window,GLFW_KEY_S);
     int x = glfwGetKey(window,GLFW_KEY_X);
     int c = glfwGetKey(window,GLFW_KEY_C);
+    int f = glfwGetKey(window,GLFW_KEY_F);
     if (a) {
         player.left();
         //player.left_tilt();
@@ -123,6 +135,15 @@ void tick_input(GLFWwindow *window) {
     {
         player.left_tilt();
     }
+    if(f)
+    {
+        if(counter%10==0)
+        {
+            glm::vec3 direction = player.translate_z;
+            bullets.push_back(Bullet(player.position.x,player.position.y,player.position.z,direction));
+            
+        }
+    }
 }
 
 void tick_elements() {
@@ -130,12 +151,30 @@ void tick_elements() {
 
     for(int i=0;i<number_of_islands;i++)
     {
-        islands[i].tick();
+        //islands[i].tick();
+        if(detect_collision(player.bounding_sphere(),islands[i].bounding_sphere()))
+        {
+            cout << i << " " << "detected 1" << '\n';
+        }
+        if(detect_collision(player.bounding_sphere(),islands[i].bounding_sphere2()))
+        {
+            cout << i << " " << "detected 2" << '\n';
+        }
     }
 
+    for(int i=0;i<bullets.size();i++)
+    {
+        bullets[i].tick();
+        
+    }
+
+    
+
     cout << player.position.x << " " << player.position.y << " " << player.position.z << '\n';
-    cout << player.local_rotation[2][0] << " " << player.local_rotation[2][1] << " " << player.local_rotation[2][2] << '\n';
-    cout << "eye " << eye.x << " " << eye.y << " " << eye.z << '\n';
+    cout << islands[0].position.x << " " << islands[0].position.y << " " << islands[0].position.z << '\n';
+    cout << bullets.size() << '\n';
+    // cout << player.local_rotation[2][0] << " " << player.local_rotation[2][1] << " " << player.local_rotation[2][2] << '\n';
+    // cout << "eye " << eye.x << " " << eye.y << " " << eye.z << '\n';
     //clouds.tick();
     //camera_rotation_angle += 1;
 }
@@ -148,10 +187,26 @@ void initGL(GLFWwindow *window, int width, int height) {
 
     
     player = Plane(0,0,0);
+    
 
     for(int i = 0;i<number_of_islands;i++)
     {
-        islands.push_back(Floor(rand()%1000,-100,rand()%1000));
+        // int positions = rand()%4;
+        // if(positions==0)
+        //    islands.push_back(Floor(rand()%1000,-100,rand()%1000));
+        // else if(positions==1)
+        // {
+        //     islands.push_back(Floor(-rand()%1000,-100,rand()%1000));
+        // }
+        // else if(positions == 2)
+        // {
+           islands.push_back(Floor(-rand()%500,-25,-rand()%500));
+        // }
+        // else if(positions == 3)
+        // {
+        //     islands.push_back(Floor(-rand()%1000,-100,rand()%1000));
+        // }
+        
     }
     
     // clouds = Floor(0,-100,0);
@@ -191,6 +246,7 @@ int main(int argc, char **argv) {
         // Process timers
 
         if (t60.processTick()) {
+            counter ++ ;
             // 60 fps
             // OpenGL Draw commands
             draw();
@@ -199,6 +255,7 @@ int main(int argc, char **argv) {
 
             tick_elements();
             tick_input(window);
+            delete_objects();
         }
 
         // Poll for Keyboard and mouse events
@@ -208,9 +265,10 @@ int main(int argc, char **argv) {
     quit(window);
 }
 
-bool detect_collision(bounding_box_t a, bounding_box_t b) {
-    return (abs(a.x - b.x) * 2 < (a.width + b.width)) &&
-           (abs(a.y - b.y) * 2 < (a.height + b.height));
+bool detect_collision(bounding_sphere_t a, bounding_sphere_t b) {
+    return (abs(a.x - b.x) * 1 < (a.radius + b.radius)) &&
+           (abs(a.y - b.y) * 1 < (a.radius + b.radius)) &&
+           (abs(a.z - b.z) * 1 < (a.radius + b.radius)) ;
 }
 
 void reset_screen() {
@@ -219,4 +277,15 @@ void reset_screen() {
     float left   = screen_center_x - 4 / screen_zoom;
     float right  = screen_center_x + 4 / screen_zoom;
     Matrices.projection = glm::perspective(1.0f, 1.0f, 1.0f, 500.0f);
+}
+
+void delete_objects()
+{
+    for(int i = 0;i<bullets.size();i++)
+    {
+        if(bullets[i].position.x -bullets[i].initial_position.x > 100 || bullets[i].position.z - bullets[i].initial_position.z > 100 || bullets[i].position.x - bullets[i].initial_position.x < -100 || bullets[i].position.z - bullets[i].initial_position.z < -100 )
+        {
+            bullets.erase(bullets.begin()+i);
+        }
+    }
 }
