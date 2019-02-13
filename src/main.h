@@ -92,5 +92,6 @@ extern const color_t COLOR_LAVA;
 extern const color_t COLOR_GRASS;
 extern const color_t COLOR_MISSILE_BODY;
 extern const color_t COLOR_MISSILE_FLAME;
+extern const color_t COLOR_SEA;
 
 #endif

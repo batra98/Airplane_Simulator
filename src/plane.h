@@ -1,4 +1,5 @@
 #include "main.h"
+#include "indicator.h"
 
 #ifndef PLANE_H
 #define PLANE_H
@@ -19,6 +20,7 @@ public:
     float length_y;
     float length_x;
     float angle_rotate;
+    Indicator indicator;
     glm::vec3 translate_z;
     glm::vec3 translate_y;
     glm::vec3 translate_x;

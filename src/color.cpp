@@ -12,3 +12,4 @@ const color_t COLOR_LAVA = {255,201,34};
 const color_t COLOR_GRASS = {49,99,0};
 const color_t COLOR_MISSILE_BODY = {252,138,23};
 const color_t COLOR_MISSILE_FLAME = {255,199,20};
+const color_t COLOR_SEA = {0, 119, 190};

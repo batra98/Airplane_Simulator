@@ -231,6 +231,33 @@ src/floor.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/floor.cpp.s
 .PHONY : src/floor.cpp.s
 
+src/indicator.o: src/indicator.cpp.o
+
+.PHONY : src/indicator.o
+
+# target to build an object file
+src/indicator.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o
+.PHONY : src/indicator.cpp.o
+
+src/indicator.i: src/indicator.cpp.i
+
+.PHONY : src/indicator.i
+
+# target to preprocess a source file
+src/indicator.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.i
+.PHONY : src/indicator.cpp.i
+
+src/indicator.s: src/indicator.cpp.s
+
+.PHONY : src/indicator.s
+
+# target to generate assembly for a file
+src/indicator.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.s
+.PHONY : src/indicator.cpp.s
+
 src/input.o: src/input.cpp.o
 
 .PHONY : src/input.o
@@ -366,6 +393,60 @@ src/plane.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/plane.cpp.s
 .PHONY : src/plane.cpp.s
 
+src/ring.o: src/ring.cpp.o
+
+.PHONY : src/ring.o
+
+# target to build an object file
+src/ring.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o
+.PHONY : src/ring.cpp.o
+
+src/ring.i: src/ring.cpp.i
+
+.PHONY : src/ring.i
+
+# target to preprocess a source file
+src/ring.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/ring.cpp.i
+.PHONY : src/ring.cpp.i
+
+src/ring.s: src/ring.cpp.s
+
+.PHONY : src/ring.s
+
+# target to generate assembly for a file
+src/ring.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/ring.cpp.s
+.PHONY : src/ring.cpp.s
+
+src/sea.o: src/sea.cpp.o
+
+.PHONY : src/sea.o
+
+# target to build an object file
+src/sea.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/sea.cpp.o
+.PHONY : src/sea.cpp.o
+
+src/sea.i: src/sea.cpp.i
+
+.PHONY : src/sea.i
+
+# target to preprocess a source file
+src/sea.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/sea.cpp.i
+.PHONY : src/sea.cpp.i
+
+src/sea.s: src/sea.cpp.s
+
+.PHONY : src/sea.s
+
+# target to generate assembly for a file
+src/sea.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/sea.cpp.s
+.PHONY : src/sea.cpp.s
+
 src/timer.o: src/timer.cpp.o
 
 .PHONY : src/timer.o
@@ -414,6 +495,9 @@ help:
 	@echo "... src/floor.o"
 	@echo "... src/floor.i"
 	@echo "... src/floor.s"
+	@echo "... src/indicator.o"
+	@echo "... src/indicator.i"
+	@echo "... src/indicator.s"
 	@echo "... src/input.o"
 	@echo "... src/input.i"
 	@echo "... src/input.s"
@@ -429,6 +513,12 @@ help:
 	@echo "... src/plane.o"
 	@echo "... src/plane.i"
 	@echo "... src/plane.s"
+	@echo "... src/ring.o"
+	@echo "... src/ring.i"
+	@echo "... src/ring.s"
+	@echo "... src/sea.o"
+	@echo "... src/sea.i"
+	@echo "... src/sea.s"
 	@echo "... src/timer.o"
 	@echo "... src/timer.i"
 	@echo "... src/timer.s"

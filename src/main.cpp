@@ -3,6 +3,9 @@
 #include "plane.h"
 #include "floor.h"
 #include "bullet.h"
+#include "sea.h"
+#include "ring.h"
+#include "indicator.h"
 
 using namespace std;
 
@@ -15,6 +18,9 @@ GLFWwindow *window;
 **************************/
 
 Plane player;
+Sea sea;
+Ring ring;
+// Indicator indicator;
 vector <Floor> islands;
 vector <Bullet> bullets;
 
@@ -61,7 +67,7 @@ void draw() {
     else if(camera_view == CAMERA_FOLLOW)
     {       
         eye = glm::vec3(player.position.x+10*player.local_rotation[2][0],player.position.y+10*player.local_rotation[2][1],player.position.z+10*player.local_rotation[2][2]);
-        target = glm::vec3(player.position.x-25*player.local_rotation[2][0],player.position.y-25*player.local_rotation[2][1],player.position.z-25*player.local_rotation[2][2]);
+        target = glm::vec3(player.position.x-50*player.local_rotation[2][0],player.position.y-50*player.local_rotation[2][1],player.position.z-50*player.local_rotation[2][2]);
         up = glm::vec3(player.local_rotation[1][0],player.local_rotation[1][1],player.local_rotation[1][2]);
         // up = glm::vec3(0,1,0);
     }
@@ -77,7 +83,10 @@ void draw() {
     glm::mat4 MVP;  // MVP = Projection * View * Model
 
     player.draw(VP);
-    
+    sea.draw(VP);
+    ring.draw(VP);
+    // indicator.draw(VP);
+
 
     for(int i=0;i<number_of_islands;i++)
     {
@@ -148,10 +157,11 @@ void tick_input(GLFWwindow *window) {
 
 void tick_elements() {
     player.tick();
+    player.indicator.tick(player.position,ring.position-player.indicator.position,player.translate_z);
 
     for(int i=0;i<number_of_islands;i++)
     {
-        //islands[i].tick();
+        islands[i].tick();
         if(detect_collision(player.bounding_sphere(),islands[i].bounding_sphere()))
         {
             cout << i << " " << "detected 1" << '\n';
@@ -170,13 +180,14 @@ void tick_elements() {
 
     
 
-    cout << player.position.x << " " << player.position.y << " " << player.position.z << '\n';
-    cout << islands[0].position.x << " " << islands[0].position.y << " " << islands[0].position.z << '\n';
-    cout << bullets.size() << '\n';
+    //cout << player.position.x << " " << player.position.y << " " << player.position.z << '\n';
+    // cout << islands[0].position.x << " " << islands[0].position.y << " " << islands[0].position.z << '\n';
+    // cout << bullets.size() << '\n';
     // cout << player.local_rotation[2][0] << " " << player.local_rotation[2][1] << " " << player.local_rotation[2][2] << '\n';
     // cout << "eye " << eye.x << " " << eye.y << " " << eye.z << '\n';
     //clouds.tick();
     //camera_rotation_angle += 1;
+    //cout << player.indicator.position.x << " " << player.indicator.position.y << " " << player.indicator.position.z << '\n';
 }
 
 /* Initialize the OpenGL rendering properties */
@@ -187,7 +198,9 @@ void initGL(GLFWwindow *window, int width, int height) {
 
     
     player = Plane(0,0,0);
-    
+    sea = Sea(0,-30,0);
+    ring = Ring(0,5,0);
+    // indicator = Indicator(player.position.x,player.position.y+5,player.position.z);
 
     for(int i = 0;i<number_of_islands;i++)
     {

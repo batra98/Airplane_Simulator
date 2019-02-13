@@ -1,5 +1,6 @@
 #include "plane.h"
 #include "main.h"
+#include "indicator.h"
 
 Plane::Plane(float x,float y,float z)
 {
@@ -13,7 +14,7 @@ Plane::Plane(float x,float y,float z)
     this->local_rotation = glm::mat4(1.0f);
 
     int n = 100;
-    GLfloat g_vertex_buffer_data[3805];
+    GLfloat g_vertex_buffer_data[3605];
 
     int k = 0;
     for(int i=0;i<n;i++)
@@ -153,6 +154,8 @@ Plane::Plane(float x,float y,float z)
     this->tail = create3DObject(GL_TRIANGLES,30,g_vertex_buffer_data1,COLOR_GREEN);
     this->back_fins = create3DObject(GL_TRIANGLES,6,g_vertex_buffer_data2,COLOR_GREEN);
     this->propeller = create3DObject(GL_TRIANGLES,12,g_vertex_buffer_data3,COLOR_GREEN);
+
+    indicator = Indicator(x,y+5,z);
 }
 void Plane::draw(glm::mat4 VP)
 {
@@ -176,6 +179,8 @@ void Plane::draw(glm::mat4 VP)
     MVP = VP * Matrices.model;
     glUniformMatrix4fv(Matrices.MatrixID,1,GL_FALSE,&MVP[0][0]);
     draw3DObject(this->propeller);
+
+    indicator.draw(VP);
     //draw3DObject(this->propeller);
 }
 
@@ -204,12 +209,7 @@ void Plane::tick()
 {
     this->propeller_angle -= 25;
 
-    if(this->velocity.z * this->acceleration.z < 0)
-        this->velocity += this->acceleration;
-    else
-        this->velocity = glm::vec3(0,0,0);
-    
-    this->position += this->velocity;
+    indicator.tick(this->position,glm::vec3(0,0,0),glm::vec3(0,0,0));
 
     // this->length_y = glm::length(glm::vec3(this->local_rotation[2][0],this->local_rotation[2][1],this->local_rotation[2][2]));
     // this->translate_y = glm::vec3(this->local_rotation[2][0]*this->norm_speed/this->length_z,this->local_rotation[2][1]*this->norm_speed/this->length_z,this->local_rotation[2][2]*this->norm_speed/this->length_z);
@@ -220,7 +220,7 @@ void Plane::right()
 {
     glm::mat4 rotate_y = glm::rotate((float)(-this->angle_rotate*M_PI/180.0f),glm::vec3(this->local_rotation[1][0],this->local_rotation[1][1],this->local_rotation[1][2]));
     //this->rotation.y -= this->norm_speed;
-    this->local_rotation = this->local_rotation*rotate_y;
+    this->local_rotation = rotate_y*this->local_rotation;
 
 }
 
@@ -228,7 +228,7 @@ void Plane::left()
 {
     glm::mat4 rotate_y = glm::rotate((float)(this->angle_rotate*M_PI/180.0f),glm::vec3(this->local_rotation[1][0],this->local_rotation[1][1],this->local_rotation[1][2]));
     //this->rotation.y += this->norm_speed;
-    this->local_rotation = this->local_rotation*rotate_y;
+    this->local_rotation = rotate_y*this->local_rotation;
 }
 
 void Plane::forward()
