@@ -1,4 +1,5 @@
 #include "floor.h"
+#include "land_enemies.h"
 #include "main.h"
 
 Floor::Floor(float x,float y,float z)
@@ -128,6 +129,8 @@ Floor::Floor(float x,float y,float z)
     this->volcano = create3DObject(GL_TRIANGLES,6*n,g_vertex_buffer_data1,COLOR_VOLCANO);
     this->flames = create3DObject(GL_TRIANGLES,6*n,g_vertex_buffer_data2,COLOR_LAVA);
     this->base = create3DObject(GL_TRIANGLES,3*n,g_vertex_buffer_data3,COLOR_GRASS);
+
+    land_enemies = Land_enemies(x+rand()%60,y+5,z+rand()%30);
 }
 
 void Floor::draw(glm::mat4 VP)
@@ -140,14 +143,17 @@ void Floor::draw(glm::mat4 VP)
     draw3DObject(this->volcano);
     draw3DObject(this->flames);
     draw3DObject(this->base);
+
+    land_enemies.draw(VP);
 }
 
 void Floor::set_position(float x, float y, float z) {
     this->position = glm::vec3(x, y, z);
 }
 
-void Floor::tick(){
+void Floor::tick(glm::vec3 direction){
     this->position+= this->acc*glm::vec3(0.08,0.08,0.08);
+    land_enemies.tick(this->position,direction);
     
     
 }

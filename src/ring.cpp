@@ -38,6 +38,8 @@ Ring::Ring(float x,float y,float z)
 
     this->ring = create3DObject(GL_TRIANGLES,6*n,g_vertex_buffer_data,COLOR_RED);
 
+    
+
 
 }
 

@@ -14,7 +14,7 @@ Indicator::Indicator(float x,float y,float z)
     {
         g_vertex_buffer_data[k++] = 0.0f;
         g_vertex_buffer_data[k++] = 0.0f;
-        g_vertex_buffer_data[k++] = -3.0f;
+        g_vertex_buffer_data[k++] = -2.0f;
 
         g_vertex_buffer_data[k++] = 0.0f + 0.75*sin(2*M_PI/n*i);
         g_vertex_buffer_data[k++] = 0.0f + 0.75*cos(2*M_PI/n*i);
@@ -35,15 +35,15 @@ Indicator::Indicator(float x,float y,float z)
 
         g_vertex_buffer_data1[k++] = 0.0f + 0.5*sin(2*M_PI/n*i);
         g_vertex_buffer_data1[k++] = 0.0f + 0.5*cos(2*M_PI/n*i);
-        g_vertex_buffer_data1[k++] = 4.0f;
+        g_vertex_buffer_data1[k++] = 3.0f;
 
         g_vertex_buffer_data1[k++] = 0.0f + 0.5*sin(2*M_PI/n*(i+1));
 		g_vertex_buffer_data1[k++] = 0.0f + 0.5*cos(2*M_PI/n*(i+1));
-		g_vertex_buffer_data1[k++] = 4.0f;
+		g_vertex_buffer_data1[k++] = 3.0f;
 
         g_vertex_buffer_data1[k++] = 0.0f + 0.5*sin(2*M_PI/n*(i+1));
 		g_vertex_buffer_data1[k++] = 0.0f + 0.5*cos(2*M_PI/n*(i+1));
-		g_vertex_buffer_data1[k++] = 4.0f;
+		g_vertex_buffer_data1[k++] = 3.0f;
 
         g_vertex_buffer_data1[k++] = 0.0f + 0.5*sin(2*M_PI/n*i);
         g_vertex_buffer_data1[k++] = 0.0f + 0.5*cos(2*M_PI/n*i);
@@ -62,20 +62,20 @@ Indicator::Indicator(float x,float y,float z)
     {
         g_vertex_buffer_data2[k++] = 0.0f;
         g_vertex_buffer_data2[k++] = 0.0f;
-        g_vertex_buffer_data2[k++] = 4.0f;
+        g_vertex_buffer_data2[k++] = 3.0f;
 
         g_vertex_buffer_data2[k++] = 0.0f + 0.5*sin(2*M_PI/n*i);
         g_vertex_buffer_data2[k++] = 0.0f + 0.5*cos(2*M_PI/n*i);
-        g_vertex_buffer_data2[k++] = 4.0f;
+        g_vertex_buffer_data2[k++] = 3.0f;
 
         g_vertex_buffer_data2[k++] = 0.0f + 0.5*sin(2*M_PI/n*(i+1));
         g_vertex_buffer_data2[k++] = 0.0f + 0.5*cos(2*M_PI/n*(i+1));
-        g_vertex_buffer_data2[k++] = 4.0f;
+        g_vertex_buffer_data2[k++] = 3.0f;
     }
 
-    this->cone = create3DObject(GL_TRIANGLES,3*n,g_vertex_buffer_data,COLOR_LAVA);
-    this->body = create3DObject(GL_TRIANGLES,6*n,g_vertex_buffer_data1,COLOR_BLACK);
-    this->cover = create3DObject(GL_TRIANGLES,3*n,g_vertex_buffer_data2,COLOR_BLACK);
+    this->cone = create3DObject(GL_TRIANGLES,3*n,g_vertex_buffer_data,COLOR_ARROW);
+    this->body = create3DObject(GL_TRIANGLES,6*n,g_vertex_buffer_data1,COLOR_ARROW_BODY);
+    this->cover = create3DObject(GL_TRIANGLES,3*n,g_vertex_buffer_data2,COLOR_ARROW_BODY);
 }
 
 void Indicator::draw(glm::mat4 VP)

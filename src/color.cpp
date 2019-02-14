@@ -13,3 +13,6 @@ const color_t COLOR_GRASS = {49,99,0};
 const color_t COLOR_MISSILE_BODY = {252,138,23};
 const color_t COLOR_MISSILE_FLAME = {255,199,20};
 const color_t COLOR_SEA = {0, 119, 190};
+const color_t COLOR_ARROW_BODY = {255,165,0};
+const color_t COLOR_ARROW = {255,215,0};
+const color_t COLOR_CANNON = {107,142,35};

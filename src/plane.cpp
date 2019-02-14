@@ -155,7 +155,7 @@ Plane::Plane(float x,float y,float z)
     this->back_fins = create3DObject(GL_TRIANGLES,6,g_vertex_buffer_data2,COLOR_GREEN);
     this->propeller = create3DObject(GL_TRIANGLES,12,g_vertex_buffer_data3,COLOR_GREEN);
 
-    indicator = Indicator(x,y+5,z);
+    indicator = Indicator(x,y+30,z);
 }
 void Plane::draw(glm::mat4 VP)
 {

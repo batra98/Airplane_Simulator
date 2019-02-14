@@ -78,6 +78,8 @@ bool detect_collision(bounding_sphere_t a, bounding_sphere_t b);
 extern float screen_zoom, screen_center_x, screen_center_y;
 void reset_screen();
 void delete_objects();
+bool check_pass_through();
+void enemy_selected(int i);
 
 // ---- Colors ----
 extern const color_t COLOR_RED;
@@ -93,5 +95,8 @@ extern const color_t COLOR_GRASS;
 extern const color_t COLOR_MISSILE_BODY;
 extern const color_t COLOR_MISSILE_FLAME;
 extern const color_t COLOR_SEA;
+extern const color_t COLOR_ARROW_BODY;
+extern const color_t COLOR_ARROW;
+extern const color_t COLOR_CANNON;
 
 #endif

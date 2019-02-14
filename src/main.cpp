@@ -6,6 +6,7 @@
 #include "sea.h"
 #include "ring.h"
 #include "indicator.h"
+#include "enemy_bullet.h"
 
 using namespace std;
 
@@ -23,6 +24,7 @@ Ring ring;
 // Indicator indicator;
 vector <Floor> islands;
 vector <Bullet> bullets;
+vector <Enemy_bullet> enemy_bullets;
 
 
 float screen_zoom = 1, screen_center_x = 0, screen_center_y = 0;
@@ -32,6 +34,7 @@ camera_view_t camera_view = CAMERA_NORMAL;
 
 int number_of_islands = 20;
 int counter=0;
+float shortest_enemy=0.0f;
 
 
 
@@ -71,6 +74,12 @@ void draw() {
         up = glm::vec3(player.local_rotation[1][0],player.local_rotation[1][1],player.local_rotation[1][2]);
         // up = glm::vec3(0,1,0);
     }
+    else if(camera_view == CAMERA_DRIVER)
+    {
+        eye = glm::vec3(player.position.x-4*player.local_rotation[2][0],player.position.y-4*player.local_rotation[2][1],player.position.z-4*player.local_rotation[2][2]);
+        target = glm::vec3(player.position.x-50*player.local_rotation[2][0],player.position.y-50*player.local_rotation[2][1],player.position.z-50*player.local_rotation[2][2]);
+        up = glm::vec3(player.local_rotation[1][0],player.local_rotation[1][1],player.local_rotation[1][2]);
+    }
 
     
 
@@ -96,6 +105,11 @@ void draw() {
     for(int i = 0;i<bullets.size();i++)
     {
         bullets[i].draw(VP);
+    }
+
+    for(int i = 0;i<enemy_bullets.size();i++)
+    {
+        enemy_bullets[i].draw(VP);
     }
     // clouds.draw(VP);
     // Scene render
@@ -149,8 +163,7 @@ void tick_input(GLFWwindow *window) {
         if(counter%10==0)
         {
             glm::vec3 direction = player.translate_z;
-            bullets.push_back(Bullet(player.position.x,player.position.y,player.position.z,direction));
-            
+            bullets.push_back(Bullet(player.position.x,player.position.y,player.position.z,direction));            
         }
     }
 }
@@ -159,9 +172,18 @@ void tick_elements() {
     player.tick();
     player.indicator.tick(player.position,ring.position-player.indicator.position,player.translate_z);
 
+    
+    float length,min = 10000;
     for(int i=0;i<number_of_islands;i++)
     {
-        islands[i].tick();
+        islands[i].tick(player.position);
+        // cout << islands[i].land_enemies.enemy_cannon.position.x << '\n';
+        length = glm::length(player.position-islands[i].land_enemies.enemy_cannon.position);
+        if(length<min)
+        {
+            min = length;
+            shortest_enemy = i;
+        }
         if(detect_collision(player.bounding_sphere(),islands[i].bounding_sphere()))
         {
             cout << i << " " << "detected 1" << '\n';
@@ -172,15 +194,31 @@ void tick_elements() {
         }
     }
 
+    if(counter%20==0)
+    enemy_selected(shortest_enemy);
+
     for(int i=0;i<bullets.size();i++)
     {
         bullets[i].tick();
         
     }
 
-    
+    if(check_pass_through()==true)
+    {
+        ring.set_position(-rand()%60,rand()%60,-rand()%60);
+    }
 
-    //cout << player.position.x << " " << player.position.y << " " << player.position.z << '\n';
+    for(int i = 0;i<enemy_bullets.size();i++)
+    {
+        enemy_bullets[i].tick();
+        if(detect_collision(player.bounding_sphere(),enemy_bullets[i].bounding_sphere()))
+        {
+            cout << i << " hit" << '\n';
+        }
+    }
+    
+    cout << enemy_bullets.size() << '\n';
+    // cout << player.position.x << " " << player.position.y << " " << player.position.z << '\n';
     // cout << islands[0].position.x << " " << islands[0].position.y << " " << islands[0].position.z << '\n';
     // cout << bullets.size() << '\n';
     // cout << player.local_rotation[2][0] << " " << player.local_rotation[2][1] << " " << player.local_rotation[2][2] << '\n';
@@ -199,7 +237,7 @@ void initGL(GLFWwindow *window, int width, int height) {
     
     player = Plane(0,0,0);
     sea = Sea(0,-30,0);
-    ring = Ring(0,5,0);
+    ring = Ring(0,20,0);
     // indicator = Indicator(player.position.x,player.position.y+5,player.position.z);
 
     for(int i = 0;i<number_of_islands;i++)
@@ -292,6 +330,21 @@ void reset_screen() {
     Matrices.projection = glm::perspective(1.0f, 1.0f, 1.0f, 500.0f);
 }
 
+bool check_pass_through()
+{
+    if(ring.position.z < player.position.z + 4)
+    {
+        float length = glm::length(player.position-ring.position);
+
+        if(length<5)
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
+
 void delete_objects()
 {
     for(int i = 0;i<bullets.size();i++)
@@ -301,4 +354,17 @@ void delete_objects()
             bullets.erase(bullets.begin()+i);
         }
     }
+
+    for(int i = 0;i<enemy_bullets.size();i++)
+    {
+        if(enemy_bullets[i].position.x - enemy_bullets[i].initial_direction.x > 100 || enemy_bullets[i].position.y - enemy_bullets[i].initial_direction.y > 100 || enemy_bullets[i].position.z - enemy_bullets[i].initial_direction.z > 100)
+        {
+            enemy_bullets.erase(enemy_bullets.begin()+i);
+        }
+    }
+}
+
+void enemy_selected(int i)
+{
+    enemy_bullets.push_back(Enemy_bullet(islands[i].land_enemies.enemy_cannon.position.x,islands[i].land_enemies.enemy_cannon.position.y,islands[i].land_enemies.enemy_cannon.position.z,(player.position)-islands[i].land_enemies.enemy_cannon.position));
 }

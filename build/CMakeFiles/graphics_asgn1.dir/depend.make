@@ -12,8 +12,18 @@ CMakeFiles/graphics_asgn1.dir/src/bullet.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.o: ../src/color.cpp
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.o: ../src/main.h
 
+CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o: ../src/enemy_bullet.cpp
+CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o: ../src/enemy_bullet.h
+CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o: ../src/main.h
+
+CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o: ../src/enemy_cannon.cpp
+CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o: ../src/enemy_cannon.h
+CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o: ../src/main.h
+
+CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o: ../src/enemy_cannon.h
 CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o: ../src/floor.cpp
 CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o: ../src/floor.h
+CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o: ../src/land_enemies.h
 CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o: ../src/main.h
 
 CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o: ../src/indicator.cpp
@@ -23,9 +33,17 @@ CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/input.cpp.o: ../src/input.cpp
 CMakeFiles/graphics_asgn1.dir/src/input.cpp.o: ../src/main.h
 
+CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o: ../src/enemy_cannon.h
+CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o: ../src/land_enemies.cpp
+CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o: ../src/land_enemies.h
+CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o: ../src/main.h
+
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/bullet.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/enemy_bullet.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/enemy_cannon.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/floor.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/indicator.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/land_enemies.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/plane.h

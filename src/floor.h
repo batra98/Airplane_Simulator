@@ -1,4 +1,5 @@
 #include "main.h"
+#include "land_enemies.h"
 
 #ifndef FLOOR_H
 #define FLOOR_H
@@ -10,9 +11,10 @@ public:
     glm::vec3 position;
     glm::vec3 acc;
     glm::vec3 position_volcano;
+    Land_enemies land_enemies;
     void draw(glm::mat4 VP);
     void set_position(float x,float y,float z);
-    void tick();
+    void tick(glm::vec3 direction);
     bounding_sphere_t bounding_sphere();
     bounding_sphere_t bounding_sphere2();
 

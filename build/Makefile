@@ -204,6 +204,60 @@ src/color.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/color.cpp.s
 .PHONY : src/color.cpp.s
 
+src/enemy_bullet.o: src/enemy_bullet.cpp.o
+
+.PHONY : src/enemy_bullet.o
+
+# target to build an object file
+src/enemy_bullet.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o
+.PHONY : src/enemy_bullet.cpp.o
+
+src/enemy_bullet.i: src/enemy_bullet.cpp.i
+
+.PHONY : src/enemy_bullet.i
+
+# target to preprocess a source file
+src/enemy_bullet.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.i
+.PHONY : src/enemy_bullet.cpp.i
+
+src/enemy_bullet.s: src/enemy_bullet.cpp.s
+
+.PHONY : src/enemy_bullet.s
+
+# target to generate assembly for a file
+src/enemy_bullet.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.s
+.PHONY : src/enemy_bullet.cpp.s
+
+src/enemy_cannon.o: src/enemy_cannon.cpp.o
+
+.PHONY : src/enemy_cannon.o
+
+# target to build an object file
+src/enemy_cannon.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o
+.PHONY : src/enemy_cannon.cpp.o
+
+src/enemy_cannon.i: src/enemy_cannon.cpp.i
+
+.PHONY : src/enemy_cannon.i
+
+# target to preprocess a source file
+src/enemy_cannon.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.i
+.PHONY : src/enemy_cannon.cpp.i
+
+src/enemy_cannon.s: src/enemy_cannon.cpp.s
+
+.PHONY : src/enemy_cannon.s
+
+# target to generate assembly for a file
+src/enemy_cannon.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.s
+.PHONY : src/enemy_cannon.cpp.s
+
 src/floor.o: src/floor.cpp.o
 
 .PHONY : src/floor.o
@@ -284,6 +338,33 @@ src/input.s: src/input.cpp.s
 src/input.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/input.cpp.s
 .PHONY : src/input.cpp.s
+
+src/land_enemies.o: src/land_enemies.cpp.o
+
+.PHONY : src/land_enemies.o
+
+# target to build an object file
+src/land_enemies.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o
+.PHONY : src/land_enemies.cpp.o
+
+src/land_enemies.i: src/land_enemies.cpp.i
+
+.PHONY : src/land_enemies.i
+
+# target to preprocess a source file
+src/land_enemies.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.i
+.PHONY : src/land_enemies.cpp.i
+
+src/land_enemies.s: src/land_enemies.cpp.s
+
+.PHONY : src/land_enemies.s
+
+# target to generate assembly for a file
+src/land_enemies.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.s
+.PHONY : src/land_enemies.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -492,6 +573,12 @@ help:
 	@echo "... src/color.o"
 	@echo "... src/color.i"
 	@echo "... src/color.s"
+	@echo "... src/enemy_bullet.o"
+	@echo "... src/enemy_bullet.i"
+	@echo "... src/enemy_bullet.s"
+	@echo "... src/enemy_cannon.o"
+	@echo "... src/enemy_cannon.i"
+	@echo "... src/enemy_cannon.s"
 	@echo "... src/floor.o"
 	@echo "... src/floor.i"
 	@echo "... src/floor.s"
@@ -501,6 +588,9 @@ help:
 	@echo "... src/input.o"
 	@echo "... src/input.i"
 	@echo "... src/input.s"
+	@echo "... src/land_enemies.o"
+	@echo "... src/land_enemies.i"
+	@echo "... src/land_enemies.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

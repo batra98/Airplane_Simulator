@@ -177,9 +177,33 @@ CMakeFiles/graphics_asgn1.dir/src/bullet.cpp.o.provides: CMakeFiles/graphics_asg
 CMakeFiles/graphics_asgn1.dir/src/bullet.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/src/bullet.cpp.o
 
 
+CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
+CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o: ../src/land_enemies.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o -c /home/gaurav/Graphics/airplane_simulator/src/land_enemies.cpp
+
+CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gaurav/Graphics/airplane_simulator/src/land_enemies.cpp > CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.i
+
+CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gaurav/Graphics/airplane_simulator/src/land_enemies.cpp -o CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.s
+
+CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o.requires:
+
+.PHONY : CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o.requires
+
+CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o.provides: CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o.requires
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o.provides.build
+.PHONY : CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o.provides
+
+CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o
+
+
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.o: ../src/color.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/color.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/color.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/color.cpp.o -c /home/gaurav/Graphics/airplane_simulator/src/color.cpp
 
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.i: cmake_force
@@ -203,7 +227,7 @@ CMakeFiles/graphics_asgn1.dir/src/color.cpp.o.provides.build: CMakeFiles/graphic
 
 CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o: ../src/ring.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o -c /home/gaurav/Graphics/airplane_simulator/src/ring.cpp
 
 CMakeFiles/graphics_asgn1.dir/src/ring.cpp.i: cmake_force
@@ -227,7 +251,7 @@ CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o.provides.build: CMakeFiles/graphics
 
 CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o: ../src/floor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o -c /home/gaurav/Graphics/airplane_simulator/src/floor.cpp
 
 CMakeFiles/graphics_asgn1.dir/src/floor.cpp.i: cmake_force
@@ -251,7 +275,7 @@ CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o.provides.build: CMakeFiles/graphic
 
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/main.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/main.cpp.o -c /home/gaurav/Graphics/airplane_simulator/src/main.cpp
 
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.i: cmake_force
@@ -275,7 +299,7 @@ CMakeFiles/graphics_asgn1.dir/src/main.cpp.o.provides.build: CMakeFiles/graphics
 
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o: ../src/nonedit.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o -c /home/gaurav/Graphics/airplane_simulator/src/nonedit.cpp
 
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.i: cmake_force
@@ -297,9 +321,33 @@ CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o.provides: CMakeFiles/graphics_as
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o
 
 
+CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
+CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o: ../src/enemy_bullet.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o -c /home/gaurav/Graphics/airplane_simulator/src/enemy_bullet.cpp
+
+CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gaurav/Graphics/airplane_simulator/src/enemy_bullet.cpp > CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.i
+
+CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gaurav/Graphics/airplane_simulator/src/enemy_bullet.cpp -o CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.s
+
+CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o.requires:
+
+.PHONY : CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o.requires
+
+CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o.provides: CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o.requires
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o.provides.build
+.PHONY : CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o.provides
+
+CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o
+
+
 CMakeFiles/graphics_asgn1.dir/src/sea.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/sea.cpp.o: ../src/sea.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/sea.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/sea.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/sea.cpp.o -c /home/gaurav/Graphics/airplane_simulator/src/sea.cpp
 
 CMakeFiles/graphics_asgn1.dir/src/sea.cpp.i: cmake_force
@@ -323,7 +371,7 @@ CMakeFiles/graphics_asgn1.dir/src/sea.cpp.o.provides.build: CMakeFiles/graphics_
 
 CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o: ../src/indicator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o -c /home/gaurav/Graphics/airplane_simulator/src/indicator.cpp
 
 CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.i: cmake_force
@@ -347,7 +395,7 @@ CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o.provides.build: CMakeFiles/gra
 
 CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
 CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o: ../src/ball.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o -c /home/gaurav/Graphics/airplane_simulator/src/ball.cpp
 
 CMakeFiles/graphics_asgn1.dir/src/ball.cpp.i: cmake_force
@@ -369,6 +417,30 @@ CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o.provides: CMakeFiles/graphics_asgn1
 CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o
 
 
+CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o: CMakeFiles/graphics_asgn1.dir/flags.make
+CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o: ../src/enemy_cannon.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o -c /home/gaurav/Graphics/airplane_simulator/src/enemy_cannon.cpp
+
+CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gaurav/Graphics/airplane_simulator/src/enemy_cannon.cpp > CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.i
+
+CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gaurav/Graphics/airplane_simulator/src/enemy_cannon.cpp -o CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.s
+
+CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o.requires:
+
+.PHONY : CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o.requires
+
+CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o.provides: CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o.requires
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o.provides.build
+.PHONY : CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o.provides
+
+CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o.provides.build: CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o
+
+
 # Object files for target graphics_asgn1
 graphics_asgn1_OBJECTS = \
 "CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o" \
@@ -376,14 +448,17 @@ graphics_asgn1_OBJECTS = \
 "CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/input.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/bullet.cpp.o" \
+"CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/color.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/main.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o" \
+"CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/sea.cpp.o" \
 "CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o" \
-"CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o"
+"CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o" \
+"CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o"
 
 # External object files for target graphics_asgn1
 graphics_asgn1_EXTERNAL_OBJECTS =
@@ -393,17 +468,20 @@ graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/input.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/bullet.cpp.o
+graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/color.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/main.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o
+graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/sea.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o
+graphics_asgn1: CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/build.make
 graphics_asgn1: CMakeFiles/graphics_asgn1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Linking CXX executable graphics_asgn1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX executable graphics_asgn1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/graphics_asgn1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -416,14 +494,17 @@ CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/other_
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/input.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/bullet.cpp.o.requires
+CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/color.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/main.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o.requires
+CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/sea.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o.requires
 CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o.requires
+CMakeFiles/graphics_asgn1.dir/requires: CMakeFiles/graphics_asgn1.dir/src/enemy_cannon.cpp.o.requires
 
 .PHONY : CMakeFiles/graphics_asgn1.dir/requires
 
