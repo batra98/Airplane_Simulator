@@ -54,8 +54,24 @@ void Land_enemies::set_position(float x, float y, float z) {
 }
 
 void Land_enemies::tick(glm::vec3 position,glm::vec3 direction){
-    this->position = position+glm::vec3(0,0,0);
+    this->position = position+glm::vec3(0,-5,0);
 
-    enemy_cannon.tick(position+glm::vec3(0,9,0),direction);
+    enemy_cannon.tick(position+glm::vec3(0,4,0),direction);
+    
+}
+
+bounding_sphere_t Land_enemies::bounding_sphere()
+{
+    float x,y,z,radius;
+
+    x = this->position.x;
+    y = this->position.y+5;
+    z = this->position.z;
+
+    radius = 5.0f;
+
+    bounding_sphere_t bsphere = {x,y,z,radius};
+
+    return bsphere;
     
 }

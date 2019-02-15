@@ -16,3 +16,5 @@ const color_t COLOR_SEA = {0, 119, 190};
 const color_t COLOR_ARROW_BODY = {255,165,0};
 const color_t COLOR_ARROW = {255,215,0};
 const color_t COLOR_CANNON = {107,142,35};
+const color_t COLOR_PARACHUTE_TOP = {196, 168, 255};
+const color_t COLOR_PARACHUTE_GIFT = {246, 36, 89};

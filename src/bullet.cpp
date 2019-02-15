@@ -85,3 +85,17 @@ void Bullet::tick()
 {
     this->position -= this->bullet_direction*glm::vec3(1.5,1.5,1.5);
 }
+
+bounding_sphere_t Bullet::bounding_sphere()
+{
+    float x,y,z,radius;
+
+    x = this->position.x;
+    y = this->position.y;
+    z = this->position.z;
+
+    radius = 0.3f;
+
+    bounding_sphere_t bsphere = {x,y,z,radius};
+    return bsphere;
+}

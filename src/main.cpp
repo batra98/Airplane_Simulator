@@ -7,6 +7,8 @@
 #include "ring.h"
 #include "indicator.h"
 #include "enemy_bullet.h"
+#include "bomb.h"
+#include "parachute.h"
 
 using namespace std;
 
@@ -21,10 +23,13 @@ GLFWwindow *window;
 Plane player;
 Sea sea;
 Ring ring;
+// Parachute parachute;
 // Indicator indicator;
 vector <Floor> islands;
 vector <Bullet> bullets;
 vector <Enemy_bullet> enemy_bullets;
+vector <Bomb> bomb;
+vector <Parachute> parachute;
 
 
 float screen_zoom = 1, screen_center_x = 0, screen_center_y = 0;
@@ -94,11 +99,16 @@ void draw() {
     player.draw(VP);
     sea.draw(VP);
     ring.draw(VP);
+    for(int i= 0;i<parachute.size();i++)
+    {
+        parachute[i].draw(VP);
+    }
     // indicator.draw(VP);
 
 
     for(int i=0;i<number_of_islands;i++)
     {
+        // cout << islands[i].hit << '\n';
         islands[i].draw(VP);
     }
 
@@ -110,6 +120,11 @@ void draw() {
     for(int i = 0;i<enemy_bullets.size();i++)
     {
         enemy_bullets[i].draw(VP);
+    }
+
+    for(int i = 0;i<bomb.size();i++)
+    {
+        bomb[i].draw(VP);
     }
     // clouds.draw(VP);
     // Scene render
@@ -126,6 +141,7 @@ void tick_input(GLFWwindow *window) {
     int x = glfwGetKey(window,GLFW_KEY_X);
     int c = glfwGetKey(window,GLFW_KEY_C);
     int f = glfwGetKey(window,GLFW_KEY_F);
+    int b = glfwGetKey(window,GLFW_KEY_B);
     if (a) {
         player.left();
         //player.left_tilt();
@@ -166,6 +182,13 @@ void tick_input(GLFWwindow *window) {
             bullets.push_back(Bullet(player.position.x,player.position.y,player.position.z,direction));            
         }
     }
+    if(b)
+    {
+        if(counter%10==0)
+        {
+            bomb.push_back(Bomb(player.position.x,player.position.y,player.position.z));
+        }
+    }
 }
 
 void tick_elements() {
@@ -176,13 +199,19 @@ void tick_elements() {
     float length,min = 10000;
     for(int i=0;i<number_of_islands;i++)
     {
+        
         islands[i].tick(player.position);
+        
+
         // cout << islands[i].land_enemies.enemy_cannon.position.x << '\n';
-        length = glm::length(player.position-islands[i].land_enemies.enemy_cannon.position);
-        if(length<min)
+        if(islands[i].hit == 0)
         {
-            min = length;
-            shortest_enemy = i;
+            length = glm::length(player.position-islands[i].land_enemies.enemy_cannon.position);
+            if(length<min)
+            {
+                min = length;
+                shortest_enemy = i;
+            }
         }
         if(detect_collision(player.bounding_sphere(),islands[i].bounding_sphere()))
         {
@@ -200,6 +229,15 @@ void tick_elements() {
     for(int i=0;i<bullets.size();i++)
     {
         bullets[i].tick();
+        for(int j = 0;j<parachute.size();j++)
+        {
+            if(detect_collision(parachute[j].bounding_sphere(),bullets[i].bounding_sphere()))
+            {
+                parachute.erase(parachute.begin()+j);
+                bullets.erase(bullets.begin()+i);
+                
+            }
+        }
         
     }
 
@@ -213,11 +251,42 @@ void tick_elements() {
         enemy_bullets[i].tick();
         if(detect_collision(player.bounding_sphere(),enemy_bullets[i].bounding_sphere()))
         {
-            cout << i << " hit" << '\n';
+            // cout << i << " hit" << '\n';
         }
     }
+
+    for(int i =0;i<bomb.size();i++)
+    {
+        bomb[i].tick();
+        for(int j = 0;j<islands.size();j++)
+        {
+            if(detect_collision(bomb[i].bounding_sphere(),islands[j].land_enemies.bounding_sphere()))
+            {
+                // islands.erase(islands.begin()+j);
+                // cout << "hit\n";
+                islands[j].hit = 1;
+            }
+        }
+
+        if(bomb[i].position.y < -30)
+        {
+            bomb.erase(bomb.begin()+i);
+        }
+
+        
+    }
+
+    if(counter%100 == 0)
+    {
+        parachute.push_back(Parachute(-rand()%500-10,rand()%60+20,-rand()%500-10));
+    }
+
+    for(int i = 0;i<parachute.size();i++)
+    {
+        parachute[i].tick();
+    }
     
-    cout << enemy_bullets.size() << '\n';
+    // cout << enemy_bullets.size() << '\n';
     // cout << player.position.x << " " << player.position.y << " " << player.position.z << '\n';
     // cout << islands[0].position.x << " " << islands[0].position.y << " " << islands[0].position.z << '\n';
     // cout << bullets.size() << '\n';
@@ -238,6 +307,7 @@ void initGL(GLFWwindow *window, int width, int height) {
     player = Plane(0,0,0);
     sea = Sea(0,-30,0);
     ring = Ring(0,20,0);
+    // parachute = Parachute(0,0,-10);
     // indicator = Indicator(player.position.x,player.position.y+5,player.position.z);
 
     for(int i = 0;i<number_of_islands;i++)
@@ -259,6 +329,7 @@ void initGL(GLFWwindow *window, int width, int height) {
         // }
         
     }
+
     
     // clouds = Floor(0,-100,0);
     // Create and compile our GLSL program from the shaders
@@ -332,11 +403,11 @@ void reset_screen() {
 
 bool check_pass_through()
 {
-    if(ring.position.z < player.position.z + 4)
+    if(ring.position.z < player.position.z + 2)
     {
         float length = glm::length(player.position-ring.position);
 
-        if(length<5)
+        if(length<4)
         {
             return true;
         }
@@ -360,6 +431,14 @@ void delete_objects()
         if(enemy_bullets[i].position.x - enemy_bullets[i].initial_direction.x > 100 || enemy_bullets[i].position.y - enemy_bullets[i].initial_direction.y > 100 || enemy_bullets[i].position.z - enemy_bullets[i].initial_direction.z > 100)
         {
             enemy_bullets.erase(enemy_bullets.begin()+i);
+        }
+    }
+
+    for(int i = 0;i<parachute.size();i++)
+    {
+        if(parachute[i].position.y < -30)
+        {
+            parachute.erase(parachute.begin()+i);
         }
     }
 }

@@ -12,9 +12,13 @@ public:
     glm::vec3 acc;
     glm::vec3 position_volcano;
     Land_enemies land_enemies;
+    int hit;
     void draw(glm::mat4 VP);
     void set_position(float x,float y,float z);
     void tick(glm::vec3 direction);
+    void tick2(glm::vec3 direction);
+    void draw2(glm::mat4 VP);
+
     bounding_sphere_t bounding_sphere();
     bounding_sphere_t bounding_sphere2();
 

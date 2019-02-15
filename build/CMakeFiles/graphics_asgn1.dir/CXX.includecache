@@ -16,6 +16,16 @@ main.h
 main.h
 /home/gaurav/Graphics/airplane_simulator/src/main.h
 
+/home/gaurav/Graphics/airplane_simulator/src/bomb.cpp
+bomb.h
+/home/gaurav/Graphics/airplane_simulator/src/bomb.h
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
+
+/home/gaurav/Graphics/airplane_simulator/src/bomb.h
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
+
 /home/gaurav/Graphics/airplane_simulator/src/bullet.cpp
 bullet.h
 /home/gaurav/Graphics/airplane_simulator/src/bullet.h
@@ -129,6 +139,10 @@ indicator.h
 /home/gaurav/Graphics/airplane_simulator/src/indicator.h
 enemy_bullet.h
 /home/gaurav/Graphics/airplane_simulator/src/enemy_bullet.h
+bomb.h
+/home/gaurav/Graphics/airplane_simulator/src/bomb.h
+parachute.h
+/home/gaurav/Graphics/airplane_simulator/src/parachute.h
 
 /home/gaurav/Graphics/airplane_simulator/src/main.h
 iostream
@@ -191,6 +205,16 @@ glm/gtx/transform.hpp
 -
 glm/gtc/matrix_transform.hpp
 -
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
+
+/home/gaurav/Graphics/airplane_simulator/src/parachute.cpp
+parachute.h
+/home/gaurav/Graphics/airplane_simulator/src/parachute.h
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
+
+/home/gaurav/Graphics/airplane_simulator/src/parachute.h
 main.h
 /home/gaurav/Graphics/airplane_simulator/src/main.h
 

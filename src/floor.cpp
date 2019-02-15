@@ -5,6 +5,7 @@
 Floor::Floor(float x,float y,float z)
 {
     this->position = glm::vec3(x,y,z);
+    this->hit = 0;
     if(rand()%4 == 0)
     {
         acc = glm::vec3(rand()%3,0,rand()%3);
@@ -130,7 +131,7 @@ Floor::Floor(float x,float y,float z)
     this->flames = create3DObject(GL_TRIANGLES,6*n,g_vertex_buffer_data2,COLOR_LAVA);
     this->base = create3DObject(GL_TRIANGLES,3*n,g_vertex_buffer_data3,COLOR_GRASS);
 
-    land_enemies = Land_enemies(x+rand()%60,y+5,z+rand()%30);
+    land_enemies = Land_enemies(x+rand()%60,y-20,z+rand()%30);
 }
 
 void Floor::draw(glm::mat4 VP)
@@ -144,19 +145,25 @@ void Floor::draw(glm::mat4 VP)
     draw3DObject(this->flames);
     draw3DObject(this->base);
 
+    if(this->hit == 0)
     land_enemies.draw(VP);
 }
+
 
 void Floor::set_position(float x, float y, float z) {
     this->position = glm::vec3(x, y, z);
 }
 
 void Floor::tick(glm::vec3 direction){
-    this->position+= this->acc*glm::vec3(0.08,0.08,0.08);
-    land_enemies.tick(this->position,direction);
+    // this->position+= this->acc*glm::vec3(0.08,0.08,0.08);
+    if(this->hit == 0)
+        land_enemies.tick(this->position,direction);
+    
+    
     
     
 }
+
 
 bounding_sphere_t Floor::bounding_sphere(){
     float x,y,z,radius;

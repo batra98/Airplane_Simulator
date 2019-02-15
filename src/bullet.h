@@ -13,6 +13,7 @@ public:
     void draw(glm::mat4 VP);
     void set_position(float x,float y,float z);
     void tick();
+    bounding_sphere_t bounding_sphere();
 private:
     VAO *body;
     VAO *flame;

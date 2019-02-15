@@ -5,6 +5,10 @@ CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o: ../src/ball.cpp
 CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o: ../src/ball.h
 CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o: ../src/main.h
 
+CMakeFiles/graphics_asgn1.dir/src/bomb.cpp.o: ../src/bomb.cpp
+CMakeFiles/graphics_asgn1.dir/src/bomb.cpp.o: ../src/bomb.h
+CMakeFiles/graphics_asgn1.dir/src/bomb.cpp.o: ../src/main.h
+
 CMakeFiles/graphics_asgn1.dir/src/bullet.cpp.o: ../src/bullet.cpp
 CMakeFiles/graphics_asgn1.dir/src/bullet.cpp.o: ../src/bullet.h
 CMakeFiles/graphics_asgn1.dir/src/bullet.cpp.o: ../src/main.h
@@ -38,6 +42,7 @@ CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o: ../src/land_enemies.cpp
 CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o: ../src/land_enemies.h
 CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o: ../src/main.h
 
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/bomb.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/bullet.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/enemy_bullet.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/enemy_cannon.h
@@ -46,6 +51,7 @@ CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/indicator.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/land_enemies.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/main.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/parachute.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/plane.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/ring.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/sea.h
@@ -56,6 +62,10 @@ CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o: ../src/nonedit.cpp
 
 CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o: ../src/other_handlers.cpp
+
+CMakeFiles/graphics_asgn1.dir/src/parachute.cpp.o: ../src/main.h
+CMakeFiles/graphics_asgn1.dir/src/parachute.cpp.o: ../src/parachute.cpp
+CMakeFiles/graphics_asgn1.dir/src/parachute.cpp.o: ../src/parachute.h
 
 CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o: ../src/indicator.h
 CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o: ../src/main.h

@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/gaurav/Graphics/airplane_simulator/src/ball.cpp" "/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles/graphics_asgn1.dir/src/ball.cpp.o"
+  "/home/gaurav/Graphics/airplane_simulator/src/bomb.cpp" "/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles/graphics_asgn1.dir/src/bomb.cpp.o"
   "/home/gaurav/Graphics/airplane_simulator/src/bullet.cpp" "/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles/graphics_asgn1.dir/src/bullet.cpp.o"
   "/home/gaurav/Graphics/airplane_simulator/src/color.cpp" "/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles/graphics_asgn1.dir/src/color.cpp.o"
   "/home/gaurav/Graphics/airplane_simulator/src/enemy_bullet.cpp" "/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o"
@@ -16,6 +17,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/gaurav/Graphics/airplane_simulator/src/main.cpp" "/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles/graphics_asgn1.dir/src/main.cpp.o"
   "/home/gaurav/Graphics/airplane_simulator/src/nonedit.cpp" "/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o"
   "/home/gaurav/Graphics/airplane_simulator/src/other_handlers.cpp" "/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o"
+  "/home/gaurav/Graphics/airplane_simulator/src/parachute.cpp" "/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles/graphics_asgn1.dir/src/parachute.cpp.o"
   "/home/gaurav/Graphics/airplane_simulator/src/plane.cpp" "/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles/graphics_asgn1.dir/src/plane.cpp.o"
   "/home/gaurav/Graphics/airplane_simulator/src/ring.cpp" "/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o"
   "/home/gaurav/Graphics/airplane_simulator/src/sea.cpp" "/home/gaurav/Graphics/airplane_simulator/build/CMakeFiles/graphics_asgn1.dir/src/sea.cpp.o"

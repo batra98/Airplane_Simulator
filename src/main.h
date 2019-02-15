@@ -98,5 +98,7 @@ extern const color_t COLOR_SEA;
 extern const color_t COLOR_ARROW_BODY;
 extern const color_t COLOR_ARROW;
 extern const color_t COLOR_CANNON;
+extern const color_t COLOR_PARACHUTE_TOP;
+extern const color_t COLOR_PARACHUTE_GIFT;
 
 #endif

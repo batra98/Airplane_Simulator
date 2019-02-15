@@ -45,6 +45,7 @@ private:
     VAO *back_fins;
     VAO *back_circle;
     VAO *propeller;
+    VAO *pointer;
 };
 
 #endif

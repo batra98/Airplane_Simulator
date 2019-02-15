@@ -148,12 +148,28 @@ Plane::Plane(float x,float y,float z)
         0.0f,0.0f,-4.0f,
     };
 
+    GLfloat g_vertex_buffer_data4[]={
+        0.0f,0.2f,-6.0f,
+        0.0f,0.4f,-6.0f,
+
+        0.2f,0.0f,-6.0f,
+        0.4f,0.0f,-6.0f,
+
+        0.0f,-0.2f,-6.0f,
+        0.0f,-0.4f,-6.0f,
+
+        -0.2f,0.0f,-6.0f,
+        -0.4f,0.0f,-6.0f,
+
+    };
+
     this->body = create3DObject(GL_TRIANGLES,6*n,g_vertex_buffer_data,PLANE_BODY);
     this->head = create3DObject(GL_TRIANGLES,3*n,g_vertex_buffer_data+18*n,COLOR_RED);
     this->back_circle = create3DObject(GL_TRIANGLES,3*n,g_vertex_buffer_data+27*n,PLANE_BODY);
     this->tail = create3DObject(GL_TRIANGLES,30,g_vertex_buffer_data1,COLOR_GREEN);
     this->back_fins = create3DObject(GL_TRIANGLES,6,g_vertex_buffer_data2,COLOR_GREEN);
     this->propeller = create3DObject(GL_TRIANGLES,12,g_vertex_buffer_data3,COLOR_GREEN);
+    this->pointer = create3DObject(GL_LINES,8,g_vertex_buffer_data4,COLOR_GREEN);
 
     indicator = Indicator(x,y+30,z);
 }
@@ -173,6 +189,7 @@ void Plane::draw(glm::mat4 VP)
     draw3DObject(this->tail);
     draw3DObject(this->back_circle);
     draw3DObject(this->back_fins);
+    draw3DObject(this->pointer);
 
     glm::mat4 rotate = glm::rotate((float)(this->propeller_angle*M_PI/180.0f),glm::vec3(0,0,1));
     Matrices.model *= (rotate);

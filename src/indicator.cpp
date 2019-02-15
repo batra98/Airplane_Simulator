@@ -129,9 +129,22 @@ void Indicator::tick(glm::vec3 position,glm::vec3 vector_of_alignment,glm::vec3 
     //     temp = angle;
     // }
 
-    this->local_axis[2][0] = -vector_of_alignment.x/len1;
-    this->local_axis[2][1] = -vector_of_alignment.y/len1;
-    this->local_axis[2][2] = -vector_of_alignment.z/len1;
+    // this->local_axis[2][0] = -vector_of_alignment.x/len1;
+    // this->local_axis[2][1] = -vector_of_alignment.y/len1;
+    // this->local_axis[2][2] = -vector_of_alignment.z/len1;
+
+    glm::vec3 new_z = glm::normalize(-vector_of_alignment);
+    glm::vec3 new_x = glm::normalize(glm::cross(-vector_of_alignment,glm::vec3(1,1,1)));
+    glm::vec3 new_y = glm::normalize(glm::cross(new_z,new_x));
+
+    for(int i = 0;i<3;i++)
+    {
+        this->local_axis[2][i] = new_z[i];
+        this->local_axis[1][i] = new_y[i];
+        this->local_axis[0][i] = new_x[i];
+
+    }
+    
 
     //glm::vec3 up = vector_of_alignment-glm::vec3()
 

@@ -70,9 +70,21 @@ void Enemy_cannon::tick(glm::vec3 position,glm::vec3 direction)
 
     float length = glm::length(direction);
 
-    this->local_axis[1][0] = direction.x/length;
-    this->local_axis[1][1] = direction.y/length;
-    this->local_axis[1][2] = direction.z/length;
+    // this->local_axis[1][0] = direction.x/length;
+    // this->local_axis[1][1] = direction.y/length;
+    // this->local_axis[1][2] = direction.z/length;
+
+    glm::vec3 new_z = glm::normalize(direction);
+    glm::vec3 new_x = glm::normalize(glm::cross(direction,glm::vec3(1,1,1)));
+    glm::vec3 new_y = glm::normalize(glm::cross(new_z,new_x));
+
+    for(int i = 0;i<3;i++)
+    {
+        this->local_axis[1][i] = new_z[i];
+        this->local_axis[2][i] = new_y[i];
+        this->local_axis[0][i] = new_x[i];
+
+    }
 
     // enemy_bullet.tick(direction);
 
