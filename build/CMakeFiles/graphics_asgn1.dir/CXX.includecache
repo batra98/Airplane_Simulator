@@ -74,6 +74,16 @@ main.h
 land_enemies.h
 /home/gaurav/Graphics/airplane_simulator/src/land_enemies.h
 
+/home/gaurav/Graphics/airplane_simulator/src/healthbar.cpp
+healthbar.h
+/home/gaurav/Graphics/airplane_simulator/src/healthbar.h
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
+
+/home/gaurav/Graphics/airplane_simulator/src/healthbar.h
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
+
 /home/gaurav/Graphics/airplane_simulator/src/indicator.cpp
 indicator.h
 /home/gaurav/Graphics/airplane_simulator/src/indicator.h

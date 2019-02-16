@@ -30,6 +30,10 @@ CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o: ../src/floor.h
 CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o: ../src/land_enemies.h
 CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o: ../src/main.h
 
+CMakeFiles/graphics_asgn1.dir/src/healthbar.cpp.o: ../src/healthbar.cpp
+CMakeFiles/graphics_asgn1.dir/src/healthbar.cpp.o: ../src/healthbar.h
+CMakeFiles/graphics_asgn1.dir/src/healthbar.cpp.o: ../src/main.h
+
 CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o: ../src/indicator.cpp
 CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o: ../src/indicator.h
 CMakeFiles/graphics_asgn1.dir/src/indicator.cpp.o: ../src/main.h

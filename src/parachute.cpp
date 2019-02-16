@@ -144,7 +144,7 @@ bounding_sphere_t Parachute::bounding_sphere()
     y = this->position.y;
     z = this->position.z;
 
-    radius = 4.0f;
+    radius = 3.0f;
 
     bounding_sphere_t bsphere = {x,y,z,radius};
 

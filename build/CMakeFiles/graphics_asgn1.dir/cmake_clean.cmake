@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/graphics_asgn1.dir/src/other_handlers.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/input.cpp.o"
+  "CMakeFiles/graphics_asgn1.dir/src/healthbar.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/parachute.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/bullet.cpp.o"
   "CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o"

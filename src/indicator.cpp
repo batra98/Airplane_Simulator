@@ -81,8 +81,17 @@ Indicator::Indicator(float x,float y,float z)
 void Indicator::draw(glm::mat4 VP)
 {
     Matrices.model = glm::mat4(1.0f);
-    glm::mat4 translate = glm::translate(position);
+    glm::mat4 translate;
+    // if(camera_view == CAMERA_DRIVER)
+    translate = glm::translate(position);
+    
+    
     Matrices.model *=  (translate*this->local_axis);
+
+    // if(camera_view == CAMERA_DRIVER)
+    {
+        // Matrices.model *= (glm::translate(glm::vec3(-10,10,0)));
+    }
     // this->local_axis = glm::mat4(1.0f);
     glm::mat4 MVP = VP * Matrices.model;
     glUniformMatrix4fv(Matrices.MatrixID, 1, GL_FALSE, &MVP[0][0]);
@@ -94,7 +103,7 @@ void Indicator::draw(glm::mat4 VP)
 void Indicator::set_position(float x, float y, float z) {
     this->position = glm::vec3(x, y, z);
 }
-float temp = 0;
+// float temp = 0;
 void Indicator::tick(glm::vec3 position,glm::vec3 vector_of_alignment,glm::vec3 z_axis){
     float len1 = glm::length(vector_of_alignment);
     // float len2 = glm::length(z_axis);

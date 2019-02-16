@@ -96,7 +96,7 @@ void draw() {
     // Don't change unless you are sure!!
     glm::mat4 MVP;  // MVP = Projection * View * Model
 
-    player.draw(VP);
+    player.draw(VP,camera_view);
     sea.draw(VP);
     ring.draw(VP);
     for(int i= 0;i<parachute.size();i++)
@@ -192,7 +192,7 @@ void tick_input(GLFWwindow *window) {
 }
 
 void tick_elements() {
-    player.tick();
+    player.tick(ring.position);
     player.indicator.tick(player.position,ring.position-player.indicator.position,player.translate_z);
 
     

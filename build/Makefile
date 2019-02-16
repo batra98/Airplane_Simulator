@@ -312,6 +312,33 @@ src/floor.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/floor.cpp.s
 .PHONY : src/floor.cpp.s
 
+src/healthbar.o: src/healthbar.cpp.o
+
+.PHONY : src/healthbar.o
+
+# target to build an object file
+src/healthbar.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/healthbar.cpp.o
+.PHONY : src/healthbar.cpp.o
+
+src/healthbar.i: src/healthbar.cpp.i
+
+.PHONY : src/healthbar.i
+
+# target to preprocess a source file
+src/healthbar.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/healthbar.cpp.i
+.PHONY : src/healthbar.cpp.i
+
+src/healthbar.s: src/healthbar.cpp.s
+
+.PHONY : src/healthbar.s
+
+# target to generate assembly for a file
+src/healthbar.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/healthbar.cpp.s
+.PHONY : src/healthbar.cpp.s
+
 src/indicator.o: src/indicator.cpp.o
 
 .PHONY : src/indicator.o
@@ -639,6 +666,9 @@ help:
 	@echo "... src/floor.o"
 	@echo "... src/floor.i"
 	@echo "... src/floor.s"
+	@echo "... src/healthbar.o"
+	@echo "... src/healthbar.i"
+	@echo "... src/healthbar.s"
 	@echo "... src/indicator.o"
 	@echo "... src/indicator.i"
 	@echo "... src/indicator.s"

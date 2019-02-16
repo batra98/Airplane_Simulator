@@ -65,9 +65,21 @@ void Bullet::draw(glm::mat4 VP)
     Matrices.model = glm::mat4(1.0f);
     glm::mat4 translate = glm::translate(this->position);
     glm::mat4 rotate = glm::mat4(1.0f);
-    rotate[2][0] = this->bullet_direction.x;
-    rotate[2][1] = this->bullet_direction.y;
-    rotate[2][2] = this->bullet_direction.z;
+    // rotate[2][0] = this->bullet_direction.x;
+    // rotate[2][1] = this->bullet_direction.y;
+    // rotate[2][2] = this->bullet_direction.z;
+
+    glm::vec3 new_z = glm::normalize(this->bullet_direction);
+    glm::vec3 new_x = glm::normalize(glm::cross(this->bullet_direction,glm::vec3(1,1,1)));
+    glm::vec3 new_y = glm::normalize(glm::cross(new_z,new_x));
+
+    for(int i = 0;i<3;i++)
+    {
+        rotate[2][i] = new_z[i];
+        rotate[1][i] = new_y[i];
+        rotate[0][i] = new_x[i];
+
+    }
 
     Matrices.model *= (translate*rotate);
     glm::mat4 MVP = VP * Matrices.model;

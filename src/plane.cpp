@@ -2,6 +2,7 @@
 #include "main.h"
 #include "indicator.h"
 
+
 Plane::Plane(float x,float y,float z)
 {
     this->position = glm::vec3(x,y,z);
@@ -12,6 +13,7 @@ Plane::Plane(float x,float y,float z)
     this->angle_rotate = 0.5;
     this->propeller_angle = 0;
     this->local_rotation = glm::mat4(1.0f);
+    this->compass_axis = glm::mat4(1.0f);
 
     int n = 100;
     GLfloat g_vertex_buffer_data[3605];
@@ -149,17 +151,114 @@ Plane::Plane(float x,float y,float z)
     };
 
     GLfloat g_vertex_buffer_data4[]={
-        0.0f,0.2f,-6.0f,
-        0.0f,0.4f,-6.0f,
+        0.0f,0.1f,-6.0f,
+        0.0f,0.3f,-6.0f,
 
-        0.2f,0.0f,-6.0f,
-        0.4f,0.0f,-6.0f,
+        0.1f,0.0f,-6.0f,
+        0.3f,0.0f,-6.0f,
 
-        0.0f,-0.2f,-6.0f,
-        0.0f,-0.4f,-6.0f,
+        0.0f,-0.1f,-6.0f,
+        0.0f,-0.3f,-6.0f,
 
-        -0.2f,0.0f,-6.0f,
-        -0.4f,0.0f,-6.0f,
+        -0.1f,0.0f,-6.0f,
+        -0.3f,0.0f,-6.0f,
+
+    };
+
+    this->length_fuel = 4.0f;
+    this->depth = -30.0f;
+    float xs = 9.0f;
+    float ys = 10.0f;
+    float zs = 5.0f;
+
+
+    GLfloat g_vertex_buffer_data5[] = {
+        4.0f+xs,0.5f-ys,this->depth,
+        4.0f+xs,-0.5f-ys,this->depth,
+        -this->length_fuel+xs,0.5f-ys,this->depth,
+
+        -this->length_fuel+xs,-0.5f-ys,this->depth,
+        4.0f+xs,-0.5f-ys,this->depth,
+        -this->length_fuel+xs,0.5f-ys,this->depth,
+
+        4.5f+xs,1.0f-ys,this->depth-0.01,
+        4.5f+xs,-1.0f-ys,this->depth-0.01,
+        -4.5f+xs,1.0f-ys,this->depth-0.01,
+
+        -4.5f+xs,-1.0f-ys,this->depth-0.01,
+        4.5f+xs,-1.0f-ys,this->depth-0.01,
+        -4.5f+xs,1.0f-ys,this->depth-0.01,
+
+    };
+
+    
+    GLfloat g_vertex_buffer_data6[3608];
+    k = 0;
+
+    xs = 0.0f;
+    ys = 10.0f;
+    zs = 0.0f;
+    for(int i=0;i<n;i++)
+    {
+       g_vertex_buffer_data6[k++] = 0.0f + 3.5*sin(2*M_PI/n*i)+xs;
+		g_vertex_buffer_data6[k++] = 0.0f + 3.5*cos(2*M_PI/n*i)+ys;
+		g_vertex_buffer_data6[k++] = this->depth+zs;
+
+		g_vertex_buffer_data6[k++] = 0.0f + 4*sin(2*M_PI/n*i)+xs;
+		g_vertex_buffer_data6[k++] = 0.0f + 4*cos(2*M_PI/n*i)+ys;
+		g_vertex_buffer_data6[k++] = this->depth+zs;
+
+		g_vertex_buffer_data6[k++] = 0.0f + 4*sin(2*M_PI/n*(i+1))+xs;
+		g_vertex_buffer_data6[k++] = 0.0f + 4*cos(2*M_PI/n*(i+1))+ys;
+		g_vertex_buffer_data6[k++] = this->depth+zs;
+
+        g_vertex_buffer_data6[k++] = 0.0f + 4*sin(2*M_PI/n*(i+1))+xs;
+		g_vertex_buffer_data6[k++] = 0.0f + 4*cos(2*M_PI/n*(i+1))+ys;
+		g_vertex_buffer_data6[k++] = this->depth+zs;
+
+        g_vertex_buffer_data6[k++] = 0.0f + 3.5*sin(2*M_PI/n*i)+xs;
+		g_vertex_buffer_data6[k++] = 0.0f + 3.5*cos(2*M_PI/n*i)+ys;
+		g_vertex_buffer_data6[k++] = this->depth+zs;
+
+		g_vertex_buffer_data6[k++] = 0.0f + 3.5*sin(2*M_PI/n*(i+1))+xs;
+		g_vertex_buffer_data6[k++] = 0.0f + 3.5*cos(2*M_PI/n*(i+1))+ys;
+		g_vertex_buffer_data6[k++] = this->depth+zs;
+    }
+
+    GLfloat g_vertex_buffer_data7[] = {
+        0.5f+xs,0.0f+ys,this->depth+zs,
+        -0.5f+xs,0.0f+ys,this->depth+zs,
+        0.0f+xs,3.5f+ys,this->depth+zs,
+
+        0.1f+xs,3.0f+ys,this->depth+zs,
+        -0.1f+xs,3.0f+ys,this->depth+zs,
+        0.0f+xs,3.5f+ys,this->depth+zs,
+    };
+
+
+    this->length_altitude = 4.0f;
+    this->depth = -30.0f;
+    xs = 9.0f;
+    ys = 10.0f;
+    zs = 5.0f;
+
+
+    GLfloat g_vertex_buffer_data8[] = {
+        4.0f-xs,0.5f-ys,this->depth,
+        4.0f-xs,-0.5f-ys,this->depth,
+        -this->length_fuel-xs,0.5f-ys,this->depth,
+
+        -this->length_fuel-xs,-0.5f-ys,this->depth,
+        4.0f-xs,-0.5f-ys,this->depth,
+        -this->length_fuel-xs,0.5f-ys,this->depth,
+
+        4.5f-xs,1.0f-ys,this->depth-0.01,
+        4.5f-xs,-1.0f-ys,this->depth-0.01,
+        -4.5f-xs,1.0f-ys,this->depth-0.01,
+
+        -4.5f-xs,-1.0f-ys,this->depth-0.01,
+        4.5f-xs,-1.0f-ys,this->depth-0.01,
+        -4.5f-xs,1.0f-ys,this->depth-0.01,
 
     };
 
@@ -171,9 +270,23 @@ Plane::Plane(float x,float y,float z)
     this->propeller = create3DObject(GL_TRIANGLES,12,g_vertex_buffer_data3,COLOR_GREEN);
     this->pointer = create3DObject(GL_LINES,8,g_vertex_buffer_data4,COLOR_GREEN);
 
+
+    this->fuelbar = create3DObject(GL_TRIANGLES,6,g_vertex_buffer_data5,COLOR_ARROW);
+    this->fuel_boundary = create3DObject(GL_TRIANGLES,6,g_vertex_buffer_data5+18,COLOR_BLACK);
+
+    this->compass_circle = create3DObject(GL_TRIANGLES,6*n,g_vertex_buffer_data6,COLOR_BLACK);
+    this->compass_pointer =create3DObject(GL_TRIANGLES,3,g_vertex_buffer_data7,COLOR_RED);
+    this->compass_tip = create3DObject(GL_TRIANGLES,3,g_vertex_buffer_data7+9,COLOR_ARROW);
+
+    this->altitude = create3DObject(GL_TRIANGLES,6,g_vertex_buffer_data8,COLOR_ARROW);
+    this->altitude_boundary = create3DObject(GL_TRIANGLES,6,g_vertex_buffer_data8+18,COLOR_BLACK);
+    
+
+
     indicator = Indicator(x,y+30,z);
+    
 }
-void Plane::draw(glm::mat4 VP)
+void Plane::draw(glm::mat4 VP,camera_view_t camera_view)
 {
     Matrices.model = glm::mat4(1.0f);
     glm::mat4 translate = glm::translate(this->position);
@@ -191,14 +304,54 @@ void Plane::draw(glm::mat4 VP)
     draw3DObject(this->back_fins);
     draw3DObject(this->pointer);
 
+    if(camera_view == CAMERA_DRIVER)
+    {
+        draw3DObject(this->fuelbar);
+        draw3DObject(this->fuel_boundary);
+        draw3DObject(this->altitude_boundary);
+        draw3DObject(this->altitude);
+        // draw3DObject(this->compass_circle);
+    }
+    // draw3DObject(this->compass_pointer);
+
+
     glm::mat4 rotate = glm::rotate((float)(this->propeller_angle*M_PI/180.0f),glm::vec3(0,0,1));
     Matrices.model *= (rotate);
     MVP = VP * Matrices.model;
     glUniformMatrix4fv(Matrices.MatrixID,1,GL_FALSE,&MVP[0][0]);
     draw3DObject(this->propeller);
 
-    indicator.draw(VP);
-    //draw3DObject(this->propeller);
+
+
+    
+
+    if(camera_view != CAMERA_DRIVER)
+        indicator.draw(VP);
+    else
+    {
+        Matrices.model = glm::mat4(1.0f);
+        // glm::mat4 translate2 = glm::translate(glm::vec3(-10,-10,-10)*this->translate_y);
+        // glm::mat4 translate = glm::translate(this->position);
+        Matrices.model *= (translate*this->local_rotation);
+        glm::mat4 rotate2 = glm::rotate((float)(this->angle),glm::vec3(0,0,1));
+        // Matrices.model *= (translate2);
+        Matrices.model *= (rotate2);
+        MVP = VP * Matrices.model;
+        glUniformMatrix4fv(Matrices.MatrixID,1,GL_FALSE,&MVP[0][0]);
+        draw3DObject(this->compass_pointer);
+        draw3DObject(this->compass_tip);
+        // Matrices.model = glm::mat4(1.0f);
+        // glm::mat4 translate2 = glm::translate(glm::vec3(0,-10,30)-this->position);
+        // glm::mat4 translate3 = glm::translate(glm::vec3(0,+10,-30)+this->position);
+
+        // Matrices.model *= (glm::rotate((float)(0*M_PI/180.0f),glm::vec3(0,0,1))*translate2*translate*this->local_rotation);
+        // MVP = VP * Matrices.model;
+        // glUniformMatrix4fv(Matrices.MatrixID,1,GL_FALSE,&MVP[0][0]);
+    }
+    
+
+    
+    
 }
 
 void Plane::draw2(glm::mat4 VP)
@@ -222,11 +375,51 @@ void Plane::set_speed(float a)
     this->norm_speed = a;
 }
 
-void Plane::tick()
+void Plane::tick(glm::vec3 direction)
 {
     this->propeller_angle -= 25;
 
     indicator.tick(this->position,glm::vec3(0,0,0),glm::vec3(0,0,0));
+
+    // direction = direction-(this->position+glm::vec3(0,10,-30));
+    //    direction = direction-(this->position);
+
+        direction = glm::vec3(0,0,1);
+    // glm::vec3 new_z = glm::normalize(direction);
+    // glm::vec3 new_x = glm::normalize(glm::cross(direction,glm::vec3(1,1,1)));
+    // glm::vec3 new_y = glm::normalize(glm::cross(new_z,new_x));
+
+    // for(int i = 0;i<3;i++)
+    // {
+    //     this->compass_axis[1][i] = new_z[i];
+    //     this->compass_axis[2][i] = new_y[i];
+    //     this->compass_axis[0][i] = new_x[i];
+
+    // }
+
+    glm::vec3 vec1 = glm::normalize(direction);
+    glm::vec3 vec2 = glm::normalize(this->translate_z);
+
+    this->angle = acos(glm::dot(vec1,vec2));
+    // std::cout << this->angle << '\n';
+
+    float orientation= glm::dot(glm::normalize(glm::cross(vec1,vec2)),glm::normalize(glm::vec3(0,1,0)));
+
+    glm::vec3 temp = glm::cross(vec1,vec2);
+    float  temp_2 = glm::dot(temp, glm::vec3(0,1,0));
+
+    // std::cout << temp.x << " " << temp.y << " " << temp.z << "\n";
+    std::cout << temp_2 << "\n";
+
+    this->angle = atan2(temp_2, glm::dot(vec1,vec2));
+
+    // std::cout << orientation << '\n';
+    // glm::mat4 rotate_z = glm::rotate((float)(angle),glm::vec3(this->local_rotation[1][0],this->local_rotation[1][1],this->local_rotation[1][2]));
+    // this->compass_axis = rotate_z*this->compass_axis;
+
+    
+
+
 
     // this->length_y = glm::length(glm::vec3(this->local_rotation[2][0],this->local_rotation[2][1],this->local_rotation[2][2]));
     // this->translate_y = glm::vec3(this->local_rotation[2][0]*this->norm_speed/this->length_z,this->local_rotation[2][1]*this->norm_speed/this->length_z,this->local_rotation[2][2]*this->norm_speed/this->length_z);
