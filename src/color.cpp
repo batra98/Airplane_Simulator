@@ -19,3 +19,5 @@ const color_t COLOR_CANNON = {107,142,35};
 const color_t COLOR_PARACHUTE_TOP = {196, 168, 255};
 const color_t COLOR_PARACHUTE_GIFT = {246, 36, 89};
 const color_t COLOR_HEALTH_BAR = {144, 238, 144};
+const color_t COLOR_HEALTH_POWERUP = {255,250,250};
+const color_t COLOR_FUEL_POWERUP = {202,44,146};

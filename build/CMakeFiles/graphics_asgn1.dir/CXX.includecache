@@ -40,6 +40,18 @@ main.h
 main.h
 /home/gaurav/Graphics/airplane_simulator/src/main.h
 
+/home/gaurav/Graphics/airplane_simulator/src/digit.cpp
+digit.h
+/home/gaurav/Graphics/airplane_simulator/src/digit.h
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
+
+/home/gaurav/Graphics/airplane_simulator/src/digit.h
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
+line.h
+/home/gaurav/Graphics/airplane_simulator/src/line.h
+
 /home/gaurav/Graphics/airplane_simulator/src/enemy_bullet.cpp
 enemy_bullet.h
 /home/gaurav/Graphics/airplane_simulator/src/enemy_bullet.h
@@ -73,6 +85,26 @@ main.h
 /home/gaurav/Graphics/airplane_simulator/src/main.h
 land_enemies.h
 /home/gaurav/Graphics/airplane_simulator/src/land_enemies.h
+
+/home/gaurav/Graphics/airplane_simulator/src/fuel_powerup.cpp
+fuel_powerup.h
+/home/gaurav/Graphics/airplane_simulator/src/fuel_powerup.h
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
+
+/home/gaurav/Graphics/airplane_simulator/src/fuel_powerup.h
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
+
+/home/gaurav/Graphics/airplane_simulator/src/health_powerup.cpp
+health_powerup.h
+/home/gaurav/Graphics/airplane_simulator/src/health_powerup.h
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
+
+/home/gaurav/Graphics/airplane_simulator/src/health_powerup.h
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
 
 /home/gaurav/Graphics/airplane_simulator/src/healthbar.cpp
 healthbar.h
@@ -130,6 +162,16 @@ main.h
 enemy_cannon.h
 /home/gaurav/Graphics/airplane_simulator/src/enemy_cannon.h
 
+/home/gaurav/Graphics/airplane_simulator/src/line.cpp
+line.h
+/home/gaurav/Graphics/airplane_simulator/src/line.h
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
+
+/home/gaurav/Graphics/airplane_simulator/src/line.h
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
+
 /home/gaurav/Graphics/airplane_simulator/src/main.cpp
 main.h
 /home/gaurav/Graphics/airplane_simulator/src/main.h
@@ -153,8 +195,18 @@ bomb.h
 /home/gaurav/Graphics/airplane_simulator/src/bomb.h
 parachute.h
 /home/gaurav/Graphics/airplane_simulator/src/parachute.h
+segmentdisplay.h
+/home/gaurav/Graphics/airplane_simulator/src/segmentdisplay.h
+digit.h
+/home/gaurav/Graphics/airplane_simulator/src/digit.h
 unistd.h
 -
+scoreboard.h
+/home/gaurav/Graphics/airplane_simulator/src/scoreboard.h
+health_powerup.h
+/home/gaurav/Graphics/airplane_simulator/src/health_powerup.h
+fuel_powerup.h
+/home/gaurav/Graphics/airplane_simulator/src/fuel_powerup.h
 
 /home/gaurav/Graphics/airplane_simulator/src/main.h
 iostream
@@ -254,6 +306,16 @@ main.h
 main.h
 /home/gaurav/Graphics/airplane_simulator/src/main.h
 
+/home/gaurav/Graphics/airplane_simulator/src/scoreboard.cpp
+scoreboard.h
+/home/gaurav/Graphics/airplane_simulator/src/scoreboard.h
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
+
+/home/gaurav/Graphics/airplane_simulator/src/scoreboard.h
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
+
 /home/gaurav/Graphics/airplane_simulator/src/sea.cpp
 sea.h
 /home/gaurav/Graphics/airplane_simulator/src/sea.h
@@ -263,6 +325,18 @@ main.h
 /home/gaurav/Graphics/airplane_simulator/src/sea.h
 main.h
 /home/gaurav/Graphics/airplane_simulator/src/main.h
+
+/home/gaurav/Graphics/airplane_simulator/src/segmentdisplay.cpp
+segmentdisplay.h
+/home/gaurav/Graphics/airplane_simulator/src/segmentdisplay.h
+main.h
+/home/gaurav/Graphics/airplane_simulator/src/main.h
+cstring
+-
+
+/home/gaurav/Graphics/airplane_simulator/src/segmentdisplay.h
+digit.h
+/home/gaurav/Graphics/airplane_simulator/src/digit.h
 
 /home/gaurav/Graphics/airplane_simulator/src/timer.cpp
 timer.h

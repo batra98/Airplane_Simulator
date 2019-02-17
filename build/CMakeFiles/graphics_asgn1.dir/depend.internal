@@ -16,6 +16,11 @@ CMakeFiles/graphics_asgn1.dir/src/bullet.cpp.o
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.o
  /home/gaurav/Graphics/airplane_simulator/src/color.cpp
  /home/gaurav/Graphics/airplane_simulator/src/main.h
+CMakeFiles/graphics_asgn1.dir/src/digit.cpp.o
+ /home/gaurav/Graphics/airplane_simulator/src/digit.cpp
+ /home/gaurav/Graphics/airplane_simulator/src/digit.h
+ /home/gaurav/Graphics/airplane_simulator/src/line.h
+ /home/gaurav/Graphics/airplane_simulator/src/main.h
 CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o
  /home/gaurav/Graphics/airplane_simulator/src/enemy_bullet.cpp
  /home/gaurav/Graphics/airplane_simulator/src/enemy_bullet.h
@@ -29,6 +34,14 @@ CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o
  /home/gaurav/Graphics/airplane_simulator/src/floor.cpp
  /home/gaurav/Graphics/airplane_simulator/src/floor.h
  /home/gaurav/Graphics/airplane_simulator/src/land_enemies.h
+ /home/gaurav/Graphics/airplane_simulator/src/main.h
+CMakeFiles/graphics_asgn1.dir/src/fuel_powerup.cpp.o
+ /home/gaurav/Graphics/airplane_simulator/src/fuel_powerup.cpp
+ /home/gaurav/Graphics/airplane_simulator/src/fuel_powerup.h
+ /home/gaurav/Graphics/airplane_simulator/src/main.h
+CMakeFiles/graphics_asgn1.dir/src/health_powerup.cpp.o
+ /home/gaurav/Graphics/airplane_simulator/src/health_powerup.cpp
+ /home/gaurav/Graphics/airplane_simulator/src/health_powerup.h
  /home/gaurav/Graphics/airplane_simulator/src/main.h
 CMakeFiles/graphics_asgn1.dir/src/healthbar.cpp.o
  /home/gaurav/Graphics/airplane_simulator/src/healthbar.cpp
@@ -46,20 +59,30 @@ CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o
  /home/gaurav/Graphics/airplane_simulator/src/land_enemies.cpp
  /home/gaurav/Graphics/airplane_simulator/src/land_enemies.h
  /home/gaurav/Graphics/airplane_simulator/src/main.h
+CMakeFiles/graphics_asgn1.dir/src/line.cpp.o
+ /home/gaurav/Graphics/airplane_simulator/src/line.cpp
+ /home/gaurav/Graphics/airplane_simulator/src/line.h
+ /home/gaurav/Graphics/airplane_simulator/src/main.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o
  /home/gaurav/Graphics/airplane_simulator/src/bomb.h
  /home/gaurav/Graphics/airplane_simulator/src/bullet.h
+ /home/gaurav/Graphics/airplane_simulator/src/digit.h
  /home/gaurav/Graphics/airplane_simulator/src/enemy_bullet.h
  /home/gaurav/Graphics/airplane_simulator/src/enemy_cannon.h
  /home/gaurav/Graphics/airplane_simulator/src/floor.h
+ /home/gaurav/Graphics/airplane_simulator/src/fuel_powerup.h
+ /home/gaurav/Graphics/airplane_simulator/src/health_powerup.h
  /home/gaurav/Graphics/airplane_simulator/src/indicator.h
  /home/gaurav/Graphics/airplane_simulator/src/land_enemies.h
+ /home/gaurav/Graphics/airplane_simulator/src/line.h
  /home/gaurav/Graphics/airplane_simulator/src/main.cpp
  /home/gaurav/Graphics/airplane_simulator/src/main.h
  /home/gaurav/Graphics/airplane_simulator/src/parachute.h
  /home/gaurav/Graphics/airplane_simulator/src/plane.h
  /home/gaurav/Graphics/airplane_simulator/src/ring.h
+ /home/gaurav/Graphics/airplane_simulator/src/scoreboard.h
  /home/gaurav/Graphics/airplane_simulator/src/sea.h
+ /home/gaurav/Graphics/airplane_simulator/src/segmentdisplay.h
  /home/gaurav/Graphics/airplane_simulator/src/timer.h
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o
  /home/gaurav/Graphics/airplane_simulator/src/main.h
@@ -80,10 +103,20 @@ CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o
  /home/gaurav/Graphics/airplane_simulator/src/main.h
  /home/gaurav/Graphics/airplane_simulator/src/ring.cpp
  /home/gaurav/Graphics/airplane_simulator/src/ring.h
+CMakeFiles/graphics_asgn1.dir/src/scoreboard.cpp.o
+ /home/gaurav/Graphics/airplane_simulator/src/main.h
+ /home/gaurav/Graphics/airplane_simulator/src/scoreboard.cpp
+ /home/gaurav/Graphics/airplane_simulator/src/scoreboard.h
 CMakeFiles/graphics_asgn1.dir/src/sea.cpp.o
  /home/gaurav/Graphics/airplane_simulator/src/main.h
  /home/gaurav/Graphics/airplane_simulator/src/sea.cpp
  /home/gaurav/Graphics/airplane_simulator/src/sea.h
+CMakeFiles/graphics_asgn1.dir/src/segmentdisplay.cpp.o
+ /home/gaurav/Graphics/airplane_simulator/src/digit.h
+ /home/gaurav/Graphics/airplane_simulator/src/line.h
+ /home/gaurav/Graphics/airplane_simulator/src/main.h
+ /home/gaurav/Graphics/airplane_simulator/src/segmentdisplay.cpp
+ /home/gaurav/Graphics/airplane_simulator/src/segmentdisplay.h
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o
  /home/gaurav/Graphics/airplane_simulator/src/timer.cpp
  /home/gaurav/Graphics/airplane_simulator/src/timer.h

@@ -16,6 +16,11 @@ CMakeFiles/graphics_asgn1.dir/src/bullet.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.o: ../src/color.cpp
 CMakeFiles/graphics_asgn1.dir/src/color.cpp.o: ../src/main.h
 
+CMakeFiles/graphics_asgn1.dir/src/digit.cpp.o: ../src/digit.cpp
+CMakeFiles/graphics_asgn1.dir/src/digit.cpp.o: ../src/digit.h
+CMakeFiles/graphics_asgn1.dir/src/digit.cpp.o: ../src/line.h
+CMakeFiles/graphics_asgn1.dir/src/digit.cpp.o: ../src/main.h
+
 CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o: ../src/enemy_bullet.cpp
 CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o: ../src/enemy_bullet.h
 CMakeFiles/graphics_asgn1.dir/src/enemy_bullet.cpp.o: ../src/main.h
@@ -29,6 +34,14 @@ CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o: ../src/floor.cpp
 CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o: ../src/floor.h
 CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o: ../src/land_enemies.h
 CMakeFiles/graphics_asgn1.dir/src/floor.cpp.o: ../src/main.h
+
+CMakeFiles/graphics_asgn1.dir/src/fuel_powerup.cpp.o: ../src/fuel_powerup.cpp
+CMakeFiles/graphics_asgn1.dir/src/fuel_powerup.cpp.o: ../src/fuel_powerup.h
+CMakeFiles/graphics_asgn1.dir/src/fuel_powerup.cpp.o: ../src/main.h
+
+CMakeFiles/graphics_asgn1.dir/src/health_powerup.cpp.o: ../src/health_powerup.cpp
+CMakeFiles/graphics_asgn1.dir/src/health_powerup.cpp.o: ../src/health_powerup.h
+CMakeFiles/graphics_asgn1.dir/src/health_powerup.cpp.o: ../src/main.h
 
 CMakeFiles/graphics_asgn1.dir/src/healthbar.cpp.o: ../src/healthbar.cpp
 CMakeFiles/graphics_asgn1.dir/src/healthbar.cpp.o: ../src/healthbar.h
@@ -46,19 +59,29 @@ CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o: ../src/land_enemies.cpp
 CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o: ../src/land_enemies.h
 CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.o: ../src/main.h
 
+CMakeFiles/graphics_asgn1.dir/src/line.cpp.o: ../src/line.cpp
+CMakeFiles/graphics_asgn1.dir/src/line.cpp.o: ../src/line.h
+CMakeFiles/graphics_asgn1.dir/src/line.cpp.o: ../src/main.h
+
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/bomb.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/bullet.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/digit.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/enemy_bullet.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/enemy_cannon.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/floor.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/fuel_powerup.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/health_powerup.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/indicator.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/land_enemies.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/line.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/main.cpp
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/parachute.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/plane.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/ring.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/scoreboard.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/sea.h
+CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/segmentdisplay.h
 CMakeFiles/graphics_asgn1.dir/src/main.cpp.o: ../src/timer.h
 
 CMakeFiles/graphics_asgn1.dir/src/nonedit.cpp.o: ../src/main.h
@@ -80,9 +103,19 @@ CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o: ../src/ring.cpp
 CMakeFiles/graphics_asgn1.dir/src/ring.cpp.o: ../src/ring.h
 
+CMakeFiles/graphics_asgn1.dir/src/scoreboard.cpp.o: ../src/main.h
+CMakeFiles/graphics_asgn1.dir/src/scoreboard.cpp.o: ../src/scoreboard.cpp
+CMakeFiles/graphics_asgn1.dir/src/scoreboard.cpp.o: ../src/scoreboard.h
+
 CMakeFiles/graphics_asgn1.dir/src/sea.cpp.o: ../src/main.h
 CMakeFiles/graphics_asgn1.dir/src/sea.cpp.o: ../src/sea.cpp
 CMakeFiles/graphics_asgn1.dir/src/sea.cpp.o: ../src/sea.h
+
+CMakeFiles/graphics_asgn1.dir/src/segmentdisplay.cpp.o: ../src/digit.h
+CMakeFiles/graphics_asgn1.dir/src/segmentdisplay.cpp.o: ../src/line.h
+CMakeFiles/graphics_asgn1.dir/src/segmentdisplay.cpp.o: ../src/main.h
+CMakeFiles/graphics_asgn1.dir/src/segmentdisplay.cpp.o: ../src/segmentdisplay.cpp
+CMakeFiles/graphics_asgn1.dir/src/segmentdisplay.cpp.o: ../src/segmentdisplay.h
 
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o: ../src/timer.cpp
 CMakeFiles/graphics_asgn1.dir/src/timer.cpp.o: ../src/timer.h

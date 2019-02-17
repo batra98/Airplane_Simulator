@@ -59,6 +59,7 @@ struct GLMatrices {
 };
 
 extern GLMatrices Matrices;
+extern GLMatrices Matrices2;
 
 // ---- Logic ----
 
@@ -81,6 +82,7 @@ void delete_objects();
 bool check_pass_through();
 void enemy_selected(int i);
 void update_altitude();
+void update_score();
 
 // ---- Colors ----
 extern const color_t COLOR_RED;
@@ -102,5 +104,7 @@ extern const color_t COLOR_CANNON;
 extern const color_t COLOR_PARACHUTE_TOP;
 extern const color_t COLOR_PARACHUTE_GIFT;
 extern const color_t COLOR_HEALTH_BAR;
+extern const color_t COLOR_HEALTH_POWERUP;
+extern const color_t COLOR_FUEL_POWERUP;
 
 #endif

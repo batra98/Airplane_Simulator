@@ -231,6 +231,33 @@ src/color.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/color.cpp.s
 .PHONY : src/color.cpp.s
 
+src/digit.o: src/digit.cpp.o
+
+.PHONY : src/digit.o
+
+# target to build an object file
+src/digit.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/digit.cpp.o
+.PHONY : src/digit.cpp.o
+
+src/digit.i: src/digit.cpp.i
+
+.PHONY : src/digit.i
+
+# target to preprocess a source file
+src/digit.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/digit.cpp.i
+.PHONY : src/digit.cpp.i
+
+src/digit.s: src/digit.cpp.s
+
+.PHONY : src/digit.s
+
+# target to generate assembly for a file
+src/digit.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/digit.cpp.s
+.PHONY : src/digit.cpp.s
+
 src/enemy_bullet.o: src/enemy_bullet.cpp.o
 
 .PHONY : src/enemy_bullet.o
@@ -311,6 +338,60 @@ src/floor.s: src/floor.cpp.s
 src/floor.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/floor.cpp.s
 .PHONY : src/floor.cpp.s
+
+src/fuel_powerup.o: src/fuel_powerup.cpp.o
+
+.PHONY : src/fuel_powerup.o
+
+# target to build an object file
+src/fuel_powerup.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/fuel_powerup.cpp.o
+.PHONY : src/fuel_powerup.cpp.o
+
+src/fuel_powerup.i: src/fuel_powerup.cpp.i
+
+.PHONY : src/fuel_powerup.i
+
+# target to preprocess a source file
+src/fuel_powerup.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/fuel_powerup.cpp.i
+.PHONY : src/fuel_powerup.cpp.i
+
+src/fuel_powerup.s: src/fuel_powerup.cpp.s
+
+.PHONY : src/fuel_powerup.s
+
+# target to generate assembly for a file
+src/fuel_powerup.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/fuel_powerup.cpp.s
+.PHONY : src/fuel_powerup.cpp.s
+
+src/health_powerup.o: src/health_powerup.cpp.o
+
+.PHONY : src/health_powerup.o
+
+# target to build an object file
+src/health_powerup.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/health_powerup.cpp.o
+.PHONY : src/health_powerup.cpp.o
+
+src/health_powerup.i: src/health_powerup.cpp.i
+
+.PHONY : src/health_powerup.i
+
+# target to preprocess a source file
+src/health_powerup.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/health_powerup.cpp.i
+.PHONY : src/health_powerup.cpp.i
+
+src/health_powerup.s: src/health_powerup.cpp.s
+
+.PHONY : src/health_powerup.s
+
+# target to generate assembly for a file
+src/health_powerup.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/health_powerup.cpp.s
+.PHONY : src/health_powerup.cpp.s
 
 src/healthbar.o: src/healthbar.cpp.o
 
@@ -419,6 +500,33 @@ src/land_enemies.s: src/land_enemies.cpp.s
 src/land_enemies.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/land_enemies.cpp.s
 .PHONY : src/land_enemies.cpp.s
+
+src/line.o: src/line.cpp.o
+
+.PHONY : src/line.o
+
+# target to build an object file
+src/line.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/line.cpp.o
+.PHONY : src/line.cpp.o
+
+src/line.i: src/line.cpp.i
+
+.PHONY : src/line.i
+
+# target to preprocess a source file
+src/line.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/line.cpp.i
+.PHONY : src/line.cpp.i
+
+src/line.s: src/line.cpp.s
+
+.PHONY : src/line.s
+
+# target to generate assembly for a file
+src/line.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/line.cpp.s
+.PHONY : src/line.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -582,6 +690,33 @@ src/ring.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/ring.cpp.s
 .PHONY : src/ring.cpp.s
 
+src/scoreboard.o: src/scoreboard.cpp.o
+
+.PHONY : src/scoreboard.o
+
+# target to build an object file
+src/scoreboard.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/scoreboard.cpp.o
+.PHONY : src/scoreboard.cpp.o
+
+src/scoreboard.i: src/scoreboard.cpp.i
+
+.PHONY : src/scoreboard.i
+
+# target to preprocess a source file
+src/scoreboard.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/scoreboard.cpp.i
+.PHONY : src/scoreboard.cpp.i
+
+src/scoreboard.s: src/scoreboard.cpp.s
+
+.PHONY : src/scoreboard.s
+
+# target to generate assembly for a file
+src/scoreboard.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/scoreboard.cpp.s
+.PHONY : src/scoreboard.cpp.s
+
 src/sea.o: src/sea.cpp.o
 
 .PHONY : src/sea.o
@@ -608,6 +743,33 @@ src/sea.s: src/sea.cpp.s
 src/sea.cpp.s:
 	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/sea.cpp.s
 .PHONY : src/sea.cpp.s
+
+src/segmentdisplay.o: src/segmentdisplay.cpp.o
+
+.PHONY : src/segmentdisplay.o
+
+# target to build an object file
+src/segmentdisplay.cpp.o:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/segmentdisplay.cpp.o
+.PHONY : src/segmentdisplay.cpp.o
+
+src/segmentdisplay.i: src/segmentdisplay.cpp.i
+
+.PHONY : src/segmentdisplay.i
+
+# target to preprocess a source file
+src/segmentdisplay.cpp.i:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/segmentdisplay.cpp.i
+.PHONY : src/segmentdisplay.cpp.i
+
+src/segmentdisplay.s: src/segmentdisplay.cpp.s
+
+.PHONY : src/segmentdisplay.s
+
+# target to generate assembly for a file
+src/segmentdisplay.cpp.s:
+	$(MAKE) -f CMakeFiles/graphics_asgn1.dir/build.make CMakeFiles/graphics_asgn1.dir/src/segmentdisplay.cpp.s
+.PHONY : src/segmentdisplay.cpp.s
 
 src/timer.o: src/timer.cpp.o
 
@@ -657,6 +819,9 @@ help:
 	@echo "... src/color.o"
 	@echo "... src/color.i"
 	@echo "... src/color.s"
+	@echo "... src/digit.o"
+	@echo "... src/digit.i"
+	@echo "... src/digit.s"
 	@echo "... src/enemy_bullet.o"
 	@echo "... src/enemy_bullet.i"
 	@echo "... src/enemy_bullet.s"
@@ -666,6 +831,12 @@ help:
 	@echo "... src/floor.o"
 	@echo "... src/floor.i"
 	@echo "... src/floor.s"
+	@echo "... src/fuel_powerup.o"
+	@echo "... src/fuel_powerup.i"
+	@echo "... src/fuel_powerup.s"
+	@echo "... src/health_powerup.o"
+	@echo "... src/health_powerup.i"
+	@echo "... src/health_powerup.s"
 	@echo "... src/healthbar.o"
 	@echo "... src/healthbar.i"
 	@echo "... src/healthbar.s"
@@ -678,6 +849,9 @@ help:
 	@echo "... src/land_enemies.o"
 	@echo "... src/land_enemies.i"
 	@echo "... src/land_enemies.s"
+	@echo "... src/line.o"
+	@echo "... src/line.i"
+	@echo "... src/line.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -696,9 +870,15 @@ help:
 	@echo "... src/ring.o"
 	@echo "... src/ring.i"
 	@echo "... src/ring.s"
+	@echo "... src/scoreboard.o"
+	@echo "... src/scoreboard.i"
+	@echo "... src/scoreboard.s"
 	@echo "... src/sea.o"
 	@echo "... src/sea.i"
 	@echo "... src/sea.s"
+	@echo "... src/segmentdisplay.o"
+	@echo "... src/segmentdisplay.i"
+	@echo "... src/segmentdisplay.s"
 	@echo "... src/timer.o"
 	@echo "... src/timer.i"
 	@echo "... src/timer.s"

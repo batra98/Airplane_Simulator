@@ -9,11 +9,17 @@
 #include "enemy_bullet.h"
 #include "bomb.h"
 #include "parachute.h"
+#include "segmentdisplay.h"
+#include "digit.h"
 #include <unistd.h>
+#include "scoreboard.h"
+#include "health_powerup.h"
+#include "fuel_powerup.h"
 
 using namespace std;
 
 GLMatrices Matrices;
+GLMatrices Matrices2;
 GLuint     programID;
 GLFWwindow *window;
 
@@ -31,6 +37,17 @@ vector <Bullet> bullets;
 vector <Enemy_bullet> enemy_bullets;
 vector <Bomb> bomb;
 vector <Parachute> parachute;
+vector <Health_powerup> health_powerup;
+vector <Fuel_powerup> fuel_powerup;
+
+ScoreBoard score1;
+ScoreBoard score2;
+ScoreBoard score3;
+ScoreBoard score4;
+
+ScoreBoard health1;
+ScoreBoard health2;
+ScoreBoard health3;
 
 
 float screen_zoom = 1, screen_center_x = 0, screen_center_y = 0;
@@ -42,6 +59,8 @@ int number_of_islands = 20;
 int counter=0;
 float shortest_enemy=0.0f;
 float zoom = 15.0f;
+float score = 0;
+float health = 100;
 
 
 Timer t60(1.0 / 60);
@@ -90,7 +109,7 @@ void draw() {
     {
         double xpos,ypos;
         glfwGetCursorPos(window,&xpos,&ypos);
-        cout << xpos << " " << ypos << '\n';
+        // cout << xpos << " " << ypos << '\n';
         float angle = (360*(xpos/810) )*M_PI/180;
         float phi = (360*((ypos+30)/850))*M_PI/180;        
         
@@ -99,10 +118,16 @@ void draw() {
         up = glm::vec3(0, 1, 0);
     }
 
+    // score1.set_position(target.x,target.y,target.z);
+    // score1.update(0);
+
     
 
     Matrices.view = glm::lookAt(eye,target,up);
+    Matrices2.view = glm::lookAt(glm::vec3(0,0,1),glm::vec3(0,0,0),glm::vec3(0,-1,0));
     glm::mat4 VP = Matrices.projection * Matrices.view;
+    glm::mat4 VP2 = Matrices2.projection * Matrices2.view;
+
 
     // Send our transformation to the currently bound shader, in the "MVP" uniform
     // For each model you render, since the MVP will be different (at least the M part)
@@ -112,9 +137,34 @@ void draw() {
     player.draw(VP,camera_view);
     sea.draw(VP);
     ring.draw(VP);
+    score1.draw(VP2);
+    score2.draw(VP2);
+    score3.draw(VP2);
+    score4.draw(VP2);
+    // score1.set_position(0,-3.5,2);
+    // score1.update(0);
+    // score1.draw(VP2);
+    // score2.draw(VP2);
+    // score3.draw(VP2);
+    // score4.draw(VP2);
+
+    health1.draw(VP2);
+    health2.draw(VP2);
+    health3.draw(VP2);
+
     for(int i= 0;i<parachute.size();i++)
     {
         parachute[i].draw(VP);
+    }
+
+    for(int i= 0;i<health_powerup.size();i++)
+    {
+        health_powerup[i].draw(VP);
+    }
+
+    for(int i= 0;i<fuel_powerup.size();i++)
+    {
+        fuel_powerup[i].draw(VP);
     }
     // indicator.draw(VP);
 
@@ -243,9 +293,56 @@ void update_altitude()
     }
 }
 
+void update_score()
+{
+    if(score < 0)
+        score = 0;
+    int temp = score;
+
+    score1.update(temp%10);
+    temp = temp/10;
+
+    score2.update(temp%10);
+    temp = temp/10;
+
+    score3.update(temp%10);
+    temp = temp/10;
+
+    score4.update(temp%10);
+    temp = temp/10;
+}
+
+void update_health()
+{
+    if(health < 0)
+    {
+        cout << "Plane destroyed" << '\n';
+        quit(window);
+    }
+
+    if(health > 100)
+    {
+        health = 100;
+    }
+    int temp = health;
+
+    health3.update(temp%10);
+    temp = temp/10;
+
+    health2.update(temp%10);
+    temp = temp/10;
+
+    health1.update(temp%10);
+    temp = temp/10;
+
+}
+
 void tick_elements() {
 
     update_altitude();
+    update_score();
+    update_health();
+    cout << health_powerup.size() << '\n';
 
     player.tick(ring.position);
     player.indicator.tick(player.position,ring.position-player.indicator.position,player.translate_z);
@@ -271,10 +368,13 @@ void tick_elements() {
         if(detect_collision(player.bounding_sphere(),islands[i].bounding_sphere()))
         {
             cout << i << " " << "detected 1" << '\n';
+            health -= 1;
         }
         if(detect_collision(player.bounding_sphere(),islands[i].bounding_sphere2()))
         {
             cout << i << " " << "detected 2" << '\n';
+            health -= 1;
+
         }
     }
 
@@ -290,6 +390,7 @@ void tick_elements() {
             {
                 parachute.erase(parachute.begin()+j);
                 bullets.erase(bullets.begin()+i);
+                score += 8;
                 
             }
         }
@@ -299,6 +400,7 @@ void tick_elements() {
     if(check_pass_through()==true)
     {
         ring.set_position(-rand()%60,rand()%60,-rand()%60);
+        score += 2;
     }
 
     for(int i = 0;i<enemy_bullets.size();i++)
@@ -307,6 +409,7 @@ void tick_elements() {
         if(detect_collision(player.bounding_sphere(),enemy_bullets[i].bounding_sphere()))
         {
             // cout << i << " hit" << '\n';
+            health -= 0.04;
         }
     }
 
@@ -320,6 +423,7 @@ void tick_elements() {
                 // islands.erase(islands.begin()+j);
                 // cout << "hit\n";
                 islands[j].hit = 1;
+                score += 5.0/islands.size();
             }
         }
 
@@ -336,11 +440,34 @@ void tick_elements() {
         parachute.push_back(Parachute(-rand()%500-10,rand()%60+20,-rand()%500-10));
     }
 
+    if(counter%200 == 0)
+    {
+        health_powerup.push_back(Health_powerup(-rand()%600-10,rand()%60+20,-rand()%600-10));
+        fuel_powerup.push_back(Fuel_powerup(-rand()%600-10,rand()%60+20,-rand()%600-10));
+    }
+
     for(int i = 0;i<parachute.size();i++)
     {
         parachute[i].tick();
     }
     
+
+    for(int i = 0;i<health_powerup.size();i++)
+    {
+        health_powerup[i].tick();
+        if(detect_collision(health_powerup[i].bounding_sphere(),player.bounding_sphere()))
+        {
+            health += 5;
+            health_powerup.erase(health_powerup.begin()+i);
+        }
+
+        fuel_powerup[i].tick();
+        if(detect_collision(fuel_powerup[i].bounding_sphere(),player.bounding_sphere()))
+        {
+            player.length_fuel += 1;
+            fuel_powerup.erase(fuel_powerup.begin()+i);
+        }
+    }
     // cout << enemy_bullets.size() << '\n';
     // cout << player.position.x << " " << player.position.y << " " << player.position.z << '\n';
     // cout << islands[0].position.x << " " << islands[0].position.y << " " << islands[0].position.z << '\n';
@@ -362,6 +489,15 @@ void initGL(GLFWwindow *window, int width, int height) {
     player = Plane(0,0,0);
     sea = Sea(0,-30,0);
     ring = Ring(0,20,0);
+    score1 = ScoreBoard(-5,3,0);
+    score2 = ScoreBoard(-4.5,3,0);
+    score3 = ScoreBoard(-4,3,0);
+    score4 = ScoreBoard(-3.5,3,0);
+
+    health1 = ScoreBoard(2,3,0);
+    health2 = ScoreBoard(1.5,3,0);
+    health3 = ScoreBoard(1,3,0);
+
     // parachute = Parachute(0,0,-10);
     // indicator = Indicator(player.position.x,player.position.y+5,player.position.z);
 
@@ -391,6 +527,8 @@ void initGL(GLFWwindow *window, int width, int height) {
     programID = LoadShaders("Sample_GL.vert", "Sample_GL.frag");
     // Get a handle for our "MVP" uniform
     Matrices.MatrixID = glGetUniformLocation(programID, "MVP");
+    Matrices2.MatrixID = glGetUniformLocation(programID, "MVP");
+
 
 
     reshapeWindow (window, width, height);
@@ -416,7 +554,30 @@ int main(int argc, char **argv) {
 
     window = initGLFW(width, height);
 
+    
     initGL (window, width, height);
+
+    // score1.set_position(0,3.5,2);
+    // score1.update(0);
+
+    // score2.set_position(-0.5,3.5,2);
+    // score2.update(1);
+
+    // score3.set_position(-1,3.5,2);
+    // score3.update(2);
+
+    // score4.set_position(-1.5,3.5,2);
+    // score4.update(3);
+
+
+    // health1.set_position(-7.5,3.5,0);
+    // health1.update(4);
+
+    // health2.set_position(-7.0,3.5,0);
+    // health2.update(5);
+
+    // health3.set_position(-6.5,3.5,0);
+    // health3.update(6);
 
     /* Draw in loop */
     while (!glfwWindowShouldClose(window)) {
@@ -455,6 +616,8 @@ void reset_screen() {
     float left   = screen_center_x - 4 / screen_zoom;
     float right  = screen_center_x + 4 / screen_zoom;
     Matrices.projection = glm::perspective(1.0f, 1.0f, 1.0f, 500.0f);
+    Matrices2.projection = glm::ortho(left, right, top, bottom);
+
 }
 
 bool check_pass_through()
@@ -495,6 +658,18 @@ void delete_objects()
         if(parachute[i].position.y < -30)
         {
             parachute.erase(parachute.begin()+i);
+        }
+    }
+
+    for(int i = 0;i<health_powerup.size();i++)
+    {
+        if(health_powerup[i].position.y < -30)
+        {
+            health_powerup.erase(health_powerup.begin()+i);
+        }
+        if(fuel_powerup[i].position.y < -30)
+        {
+            fuel_powerup.erase(fuel_powerup.begin()+i);
         }
     }
 }
