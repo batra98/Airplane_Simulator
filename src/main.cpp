@@ -9,6 +9,7 @@
 #include "enemy_bullet.h"
 #include "bomb.h"
 #include "parachute.h"
+#include <unistd.h>
 
 using namespace std;
 
@@ -40,7 +41,7 @@ camera_view_t camera_view = CAMERA_NORMAL;
 int number_of_islands = 20;
 int counter=0;
 float shortest_enemy=0.0f;
-
+float zoom = 15.0f;
 
 
 Timer t60(1.0 / 60);
@@ -64,11 +65,11 @@ void draw() {
     else if(camera_view == CAMERA_TOWER)
     {
         eye = glm::vec3( 20, 20 ,0);
-        target = glm::vec3 (0, 3, -2);
+        target = player.position;
         up = glm::vec3(0, 1, 0);
     }
     else if (camera_view == CAMERA_TOP){
-        eye  = glm::vec3(player.position.x, player.position.y+45, player.position.z-2);
+        eye  = glm::vec3(player.position.x, player.position.y+65, player.position.z-2);
         target = glm::vec3 (player.position.x,player.position.y,player.position.z);
         up = glm::vec3 (0, -1, 0);
     }
@@ -84,6 +85,18 @@ void draw() {
         eye = glm::vec3(player.position.x-4*player.local_rotation[2][0],player.position.y-4*player.local_rotation[2][1],player.position.z-4*player.local_rotation[2][2]);
         target = glm::vec3(player.position.x-50*player.local_rotation[2][0],player.position.y-50*player.local_rotation[2][1],player.position.z-50*player.local_rotation[2][2]);
         up = glm::vec3(player.local_rotation[1][0],player.local_rotation[1][1],player.local_rotation[1][2]);
+    }
+    else if(camera_view == CAMERA_HELICOPTER)
+    {
+        double xpos,ypos;
+        glfwGetCursorPos(window,&xpos,&ypos);
+        cout << xpos << " " << ypos << '\n';
+        float angle = (360*(xpos/810) )*M_PI/180;
+        float phi = (360*((ypos+30)/850))*M_PI/180;        
+        
+        eye = player.position - zoom*glm::vec3(cos(angle)*sin(phi),cos(phi),sin(angle)*sin(phi));
+        target = glm::vec3(player.position.x,player.position.y,player.position.z);
+        up = glm::vec3(0, 1, 0);
     }
 
     
@@ -142,6 +155,7 @@ void tick_input(GLFWwindow *window) {
     int c = glfwGetKey(window,GLFW_KEY_C);
     int f = glfwGetKey(window,GLFW_KEY_F);
     int b = glfwGetKey(window,GLFW_KEY_B);
+    
     if (a) {
         player.left();
         //player.left_tilt();
@@ -153,6 +167,8 @@ void tick_input(GLFWwindow *window) {
     if(w)
     {
         player.forward();
+        if(player.length_fuel > -3.9)
+            player.length_fuel -= 0.001;
     }
     if(e)
     {
@@ -165,6 +181,8 @@ void tick_input(GLFWwindow *window) {
     if(s)
     {
         player.backward();
+        if(player.length_fuel > -3.9)
+            player.length_fuel -= 0.001;
     }
     if(x)
     {
@@ -189,12 +207,49 @@ void tick_input(GLFWwindow *window) {
             bomb.push_back(Bomb(player.position.x,player.position.y,player.position.z));
         }
     }
+    
+}
+
+void update_altitude()
+{
+    if(player.position.y >=0)
+    {
+        if(player.length_altitude > -8.6)
+        {
+            // cout << "hello1" << '\n';
+            player.length_altitude = -4 - 4.9/100.0 * player.position.y;
+        }
+        else if(player.length_altitude < -8.6)
+        {
+            // cout << "hello2" << '\n';
+
+            player.position.y = 90;
+            player.length_altitude = -8.5;
+            
+        }
+        
+    }
+    else if(player.position.y < 0)
+    {
+        if(player.length_altitude < 0.4)
+            player.length_altitude = -4 - 4.4/100 * player.position.y;
+        else
+        {
+            player.position.y = -90;
+            player.length_altitude = 0.3;
+            
+        }
+        
+    }
 }
 
 void tick_elements() {
+
+    update_altitude();
+
     player.tick(ring.position);
     player.indicator.tick(player.position,ring.position-player.indicator.position,player.translate_z);
-
+    ring.tick();
     
     float length,min = 10000;
     for(int i=0;i<number_of_islands;i++)
@@ -378,6 +433,7 @@ int main(int argc, char **argv) {
             tick_elements();
             tick_input(window);
             delete_objects();
+            usleep(10000);
         }
 
         // Poll for Keyboard and mouse events

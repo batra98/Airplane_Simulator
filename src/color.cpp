@@ -18,3 +18,4 @@ const color_t COLOR_ARROW = {255,215,0};
 const color_t COLOR_CANNON = {107,142,35};
 const color_t COLOR_PARACHUTE_TOP = {196, 168, 255};
 const color_t COLOR_PARACHUTE_GIFT = {246, 36, 89};
+const color_t COLOR_HEALTH_BAR = {144, 238, 144};

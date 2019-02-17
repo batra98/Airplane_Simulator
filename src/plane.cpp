@@ -236,7 +236,7 @@ Plane::Plane(float x,float y,float z)
     };
 
 
-    this->length_altitude = 4.0f;
+    this->length_altitude = 0.0f;
     this->depth = -30.0f;
     xs = 9.0f;
     ys = 10.0f;
@@ -278,7 +278,7 @@ Plane::Plane(float x,float y,float z)
     this->compass_pointer =create3DObject(GL_TRIANGLES,3,g_vertex_buffer_data7,COLOR_RED);
     this->compass_tip = create3DObject(GL_TRIANGLES,3,g_vertex_buffer_data7+9,COLOR_ARROW);
 
-    this->altitude = create3DObject(GL_TRIANGLES,6,g_vertex_buffer_data8,COLOR_ARROW);
+    this->altitude = create3DObject(GL_TRIANGLES,6,g_vertex_buffer_data8,COLOR_HEALTH_BAR);
     this->altitude_boundary = create3DObject(GL_TRIANGLES,6,g_vertex_buffer_data8+18,COLOR_BLACK);
     
 
@@ -306,6 +306,70 @@ void Plane::draw(glm::mat4 VP,camera_view_t camera_view)
 
     if(camera_view == CAMERA_DRIVER)
     {
+        delete this->fuel_boundary;
+        delete this->fuelbar;
+        delete this->altitude;
+        delete this->altitude_boundary;
+
+        // this->length_fuel = 4.0f;
+        // this->depth = -30.0f;
+        float xs = 9.0f;
+        float ys = 10.0f;
+        float zs = 5.0f;
+
+
+        GLfloat g_vertex_buffer_data5[] = {
+            4.0f+xs,0.5f-ys,this->depth,
+            4.0f+xs,-0.5f-ys,this->depth,
+            -this->length_fuel+xs,0.5f-ys,this->depth,
+
+            -this->length_fuel+xs,-0.5f-ys,this->depth,
+            4.0f+xs,-0.5f-ys,this->depth,
+            -this->length_fuel+xs,0.5f-ys,this->depth,
+
+            4.5f+xs,1.0f-ys,this->depth-0.01,
+            4.5f+xs,-1.0f-ys,this->depth-0.01,
+            -4.5f+xs,1.0f-ys,this->depth-0.01,
+
+            -4.5f+xs,-1.0f-ys,this->depth-0.01,
+            4.5f+xs,-1.0f-ys,this->depth-0.01,
+            -4.5f+xs,1.0f-ys,this->depth-0.01,
+
+        };
+
+
+        // this->length_altitude = 4.0f;
+        // this->depth = -30.0f;
+        xs = 9.0f;
+        ys = 10.0f;
+        zs = 5.0f;
+
+
+        GLfloat g_vertex_buffer_data8[] = {
+            4.0f-xs-4,0.5f-ys,this->depth,
+            4.0f-xs-4,-0.5f-ys,this->depth,
+            -this->length_altitude-xs-4,0.5f-ys,this->depth,
+
+            -this->length_altitude-xs-4,-0.5f-ys,this->depth,
+            4.0f-xs-4,-0.5f-ys,this->depth,
+            -this->length_altitude-xs-4,0.5f-ys,this->depth,
+
+            4.5f-xs,1.0f-ys,this->depth-0.01,
+            4.5f-xs,-1.0f-ys,this->depth-0.01,
+            -4.5f-xs,1.0f-ys,this->depth-0.01,
+
+            -4.5f-xs,-1.0f-ys,this->depth-0.01,
+            4.5f-xs,-1.0f-ys,this->depth-0.01,
+            -4.5f-xs,1.0f-ys,this->depth-0.01,
+
+        };
+
+        this->fuelbar = create3DObject(GL_TRIANGLES,6,g_vertex_buffer_data5,COLOR_ARROW);
+        this->fuel_boundary = create3DObject(GL_TRIANGLES,6,g_vertex_buffer_data5+18,COLOR_BLACK);
+
+        this->altitude = create3DObject(GL_TRIANGLES,6,g_vertex_buffer_data8,COLOR_HEALTH_BAR);
+        this->altitude_boundary = create3DObject(GL_TRIANGLES,6,g_vertex_buffer_data8+18,COLOR_BLACK);
+
         draw3DObject(this->fuelbar);
         draw3DObject(this->fuel_boundary);
         draw3DObject(this->altitude_boundary);
@@ -377,6 +441,8 @@ void Plane::set_speed(float a)
 
 void Plane::tick(glm::vec3 direction)
 {
+    this->translate_z = glm::vec3(this->local_rotation[2][0]*this->norm_speed/this->length_z,this->local_rotation[2][1]*this->norm_speed/this->length_z,this->local_rotation[2][2]*this->norm_speed/this->length_z);
+
     this->propeller_angle -= 25;
 
     indicator.tick(this->position,glm::vec3(0,0,0),glm::vec3(0,0,0));
@@ -409,7 +475,7 @@ void Plane::tick(glm::vec3 direction)
     float  temp_2 = glm::dot(temp, glm::vec3(0,1,0));
 
     // std::cout << temp.x << " " << temp.y << " " << temp.z << "\n";
-    std::cout << temp_2 << "\n";
+    // std::cout << temp_2 << "\n";
 
     this->angle = atan2(temp_2, glm::dot(vec1,vec2));
 

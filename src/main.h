@@ -75,11 +75,12 @@ struct bounding_sphere_t {
 
 bool detect_collision(bounding_sphere_t a, bounding_sphere_t b);
 
-extern float screen_zoom, screen_center_x, screen_center_y;
+extern float screen_zoom, screen_center_x, screen_center_y,zoom;
 void reset_screen();
 void delete_objects();
 bool check_pass_through();
 void enemy_selected(int i);
+void update_altitude();
 
 // ---- Colors ----
 extern const color_t COLOR_RED;
@@ -100,5 +101,6 @@ extern const color_t COLOR_ARROW;
 extern const color_t COLOR_CANNON;
 extern const color_t COLOR_PARACHUTE_TOP;
 extern const color_t COLOR_PARACHUTE_GIFT;
+extern const color_t COLOR_HEALTH_BAR;
 
 #endif
