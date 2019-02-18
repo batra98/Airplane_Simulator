@@ -342,7 +342,13 @@ void tick_elements() {
     update_altitude();
     update_score();
     update_health();
-    cout << health_powerup.size() << '\n';
+
+    if(player.position.y < -50)
+    {
+        cout << "Plane Destroyed\n";
+        quit(window); 
+    }
+    // cout << health_powerup.size() << '\n';
 
     player.tick(ring.position);
     player.indicator.tick(player.position,ring.position-player.indicator.position,player.translate_z);
@@ -367,12 +373,12 @@ void tick_elements() {
         }
         if(detect_collision(player.bounding_sphere(),islands[i].bounding_sphere()))
         {
-            cout << i << " " << "detected 1" << '\n';
+            // cout << i << " " << "detected 1" << '\n';
             health -= 1;
         }
         if(detect_collision(player.bounding_sphere(),islands[i].bounding_sphere2()))
         {
-            cout << i << " " << "detected 2" << '\n';
+            // cout << i << " " << "detected 2" << '\n';
             health -= 1;
 
         }
@@ -410,6 +416,7 @@ void tick_elements() {
         {
             // cout << i << " hit" << '\n';
             health -= 0.04;
+            enemy_bullets.erase(enemy_bullets.begin()+i);
         }
     }
 
