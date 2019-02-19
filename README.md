@@ -1,11 +1,9 @@
-Graphics Boilerplate Code
-=========================
+## Compiling
+go to build directory and run:
+cmake.. && make all
 
-This is boilerplate code for the assignments which might be helpful.
+## Executing
+run the command:
+./graphics_asgn1
 
 
-License
--------
-The MIT License https://meghprkh.mit-license.org/
-
-Copyright &copy; 2018 Megh Parikh <meghprkh@gmail.com>
