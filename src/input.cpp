@@ -58,6 +58,8 @@ void keyboardChar(GLFWwindow *window, unsigned int key) {
     case 'Q':
     case 'q':
         quit(window);
+        system("pkill -kill aplay");
+
         break;
     default:
         break;

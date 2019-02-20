@@ -83,7 +83,7 @@ void draw() {
     }
     else if(camera_view == CAMERA_TOWER)
     {
-        eye = glm::vec3( 20, 20 ,0);
+        eye = glm::vec3(player.position.x+10, player.position.y+20 ,0);
         target = player.position;
         up = glm::vec3(0, 1, 0);
     }
@@ -244,8 +244,9 @@ void tick_input(GLFWwindow *window) {
     }
     if(f)
     {
-        if(counter%10==0)
+        if(counter%5==0)
         {
+            system("aplay -q ../assets/bullet.wav &");
             glm::vec3 direction = player.translate_z;
             bullets.push_back(Bullet(player.position.x,player.position.y,player.position.z,direction));            
         }
@@ -317,6 +318,7 @@ void update_health()
     if(health < 0)
     {
         cout << "Plane destroyed" << '\n';
+        system("pkill -kill aplay");
         quit(window);
     }
 
@@ -338,6 +340,13 @@ void update_health()
 }
 
 void tick_elements() {
+    
+    if(counter%36000 == 0)
+    {
+        system("pkill -kill aplay");
+        // system("aplay -q ../assets/theme.wav &");
+        
+    }
 
     update_altitude();
     update_score();
@@ -346,6 +355,8 @@ void tick_elements() {
     if(player.position.y < -50)
     {
         cout << "Plane Destroyed\n";
+        system("pkill -kill aplay");
+
         quit(window); 
     }
     // cout << health_powerup.size() << '\n';
@@ -556,6 +567,7 @@ void initGL(GLFWwindow *window, int width, int height) {
 
 int main(int argc, char **argv) {
     srand(time(0));
+    // system("aplay -q ../assets/theme.wav &");
     int width  = 800;
     int height = 800;
 
@@ -607,7 +619,7 @@ int main(int argc, char **argv) {
         // Poll for Keyboard and mouse events
         glfwPollEvents();
     }
-
+    system("pkill -kill aplay");
     quit(window);
 }
 
