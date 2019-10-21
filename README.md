@@ -1,9 +1,14 @@
-## Compiling
-go to build directory and run:
-cmake.. && make all
+# JETPLANE-GAME
 
-## Executing
-run the command:
-./graphics_asgn1
+# DEVELOPER
+	GAURAV BATRA
 
+# RUNNING THE GAME
+* To build the game enter these command:
+	* mkdir output
+  * cd output
+  * cmake ..
+  * make all
 
+* To run the game enter these command in the output/ directory:
+	* run	./graphics_asgn1 in build directory
