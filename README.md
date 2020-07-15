@@ -3,6 +3,8 @@
 ## About the game
 It is a 3D emulation of a jet fighter plane game built in OpenGL.
 
+![Movement](./gifs/Movement.gif)
+
 ## :file_folder: File Structure
 ```bash
 .
@@ -40,9 +42,10 @@ make all
 	- Pitch Down: **R**
 	- Roll Left: **X**
 	- Roll Right: **C**
+	- Fire bullet: **F**
+	- Drop bomb: **B**
 - Changing Camera Views: **V**
 
-![Movement](./gifs/Movement.gif)
 
 ### Types of Views
 - Plane View: In this view, the player sees what the plane sees.
@@ -50,4 +53,20 @@ make all
 - Tower View: The camera is on a tower, observing the plane from an angle.
 - Helicopter-cam View: Movement of the camera is controlled by mouse.
 - Follow-cam View: In this view, the camera is following the plane. 
+
+![Movement](./gifs/Camera_angles.gif)
+
+### Features
+- The plane view has a dashboard with a compass and altitude and speed-meter.
+- There are enemies that follow the plane and shoot missiles.
+- There are parachutes that can fired and ground enemies can be destroyed by bombs. Each action given certain score.
+- There is a arrow over the plane, which points towards a ring suspended in the air. Passing through the ring gives addtional points.
+- Also have included theme sound and firing sound.
+
+___________________________________________
+
+Feel free to Contribute :heart:
+
+
+
 
