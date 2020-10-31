@@ -1,5 +1,8 @@
 # Airplane Simulator
 
+# DEVELOPER
+  GAURAV BATRA
+
 ## About the game
 It is a 3D emulation of a jet fighter plane game built in OpenGL.
 
